@@ -1,0 +1,21 @@
+<h1> Minibook form </h1>
+
+<%= form_with scope: :mini_book, url: minibook_create_path, model: @mini_book, :local => true do |f| %>
+
+<div>
+<div class="field">
+  <th><%= f.label :"MiniBook Name" %></th>
+  <th><%= f.text_field :minibook_name %></th>
+</div>
+
+<div class="field">
+  <th><%= f.label :"MiniBook Price"%></th>
+  <th><%= f.text_field :minibook_price %></th>
+</div>
+
+<div class = "form_button">
+  <button type="button" class="btn btn-outline-light"><%= link_to "Back", mainbook_path %></button>
+  <button type="button" class="btn btn-outline-light"><%= f.submit :"Add" %></button>
+</div>
+<% end %>
+</div>

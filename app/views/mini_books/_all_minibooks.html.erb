@@ -1,0 +1,29 @@
+<table class = "table">
+<tr scope="column">
+  <td>Entry ID</td>
+  <td>Date</td>
+  <td>Description</td>
+  <td>or-or_vat_reg_tin</td>
+  <td>DEBIT (+)</td>
+  <td>CREDIT (-)</td>
+  <td>Balance</td>
+  <td>Action</td>
+</tr>
+<% @mini_books.each do |minibook| %>
+ <tr scope="column">  
+  <td><%= minibook.id %></td>
+  <td><%= minibook.date_mainb %></td>
+  <td><%= minibook.minibook_description %></td>
+
+  <div>
+  <td>
+    <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_minibook_path(minibook.id) %></button>
+    <button type="button" class="btn btn-danger"><%= link_to "Delete", delete_entry_path(minibook.id), method: :destroy, :data => { :confirm => "Are you sure?" } %></button>
+  </td>
+  </div>
+</tr>
+<% end %>
+</table>
+
+<button type="button" class="btn btn-outline-light"><%= link_to "Back", minibook_path %></button>
+ <button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", minibook_new_path %></button>
