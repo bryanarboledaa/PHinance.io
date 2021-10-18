@@ -1,0 +1,2 @@
+module MiniBooksHelper
+end
