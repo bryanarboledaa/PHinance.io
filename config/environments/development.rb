@@ -41,6 +41,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
 
+  config.active_job.queue_adapter = :async
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
