@@ -1,12 +1,26 @@
-<h1>Pricing</h1>
-
-<% @pricing = Stripe::Price.list(lookup_keys: ["minibook_year", "minibook_month"], expand: ["data.product"]) %>
+<div class = "books-table-header"> PRICING </div>
+<div class = "books-table-container">
+  <div class="table-responsive-lg">
+    <table class="table">
+      <tr scope="column">
+      <td class = "label">Product Name</td>
+      <td class = "label">Product ID</td>
+      <td class = "label">Amount</td>
+      <td class = "label">Currency</td>
+      <td class = "label">Recurring/Interval</td>
+    </tr>
+<% @pricing = api_stripe_price_fetch() %>
 <% @pricing.each do |price| %>
-<br>
-<%= price.product.name %>
-<%= price.id %>
-<%= price.unit_amount/100 %>
-<%= price.currency %>
-<%= price.recurring.interval %>
-<%= link_to "Checkout", checkout_create_path(price: price.id), method: :post, remote: true%>
+    <tr scope="column">
+      <td><%= price.product.name %></td>  
+      <td><%= price.id %></td>
+      <td><%= price.unit_amount/100 %></td>
+      <td><%= price.currency %></td>
+      <td><%= price.recurring.interval %></td>
+      <div>
+      <td>
+        <%= link_to "Checkout", checkout_create_path(price: price.id), method: :post, remote: true%>
+      </td>
+      </div>  
+    </tr>
 <% end %>
