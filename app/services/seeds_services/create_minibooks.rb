@@ -7,7 +7,7 @@ module SeedsServices
       @user = User.all
       @user.each do |uid|
         minibook_count = 0
-        7.times do
+        5.times do
           MiniBook.create(user_id: uid.id, minibook_name: "Minibook Samp#{minibook_count}", minibook_price: 5000)
           minibook_count += 1
         end

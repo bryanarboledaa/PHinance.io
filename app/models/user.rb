@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   validates :username, :full_name, :company, presence: true
   validates :username, length: { minimum: 6 }
+  validates :email, presence: true, uniqueness: true
 
   enum status: { free: 0, paid: 1 }
 
