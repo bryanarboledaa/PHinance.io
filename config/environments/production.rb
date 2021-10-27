@@ -113,5 +113,6 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'https://phinance-io-abc-tech.herokuapp.com/' }
   config.action_mailer.perform_deliveries = true
+  config.active_job.queue_adapter = :async
 
 end

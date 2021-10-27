@@ -28,8 +28,8 @@ class WebhooksController < ApplicationController
       session = event.data.object
       @user = User.find_by(stripe_customer_id: session.customer)
       @user.update(status: 1)
-      PaymentMailer.with(email: @user.email).payment_notification.deliver_now
-      PaymentMailer.with(email: @admin_email).admin_payment_notification.deliver_now
+      PaymentMailer.with(email: @user.email).payment_notification.deliver_later
+      PaymentMailer.with(email: @admin_email).admin_payment_notification.deliver_later
     when 'customer.subscription.updated', 'customer.subscription.deleted'
       subscription = event.data.object
       @user = User.find_by(stripe_customer_id: subscription.customer)
