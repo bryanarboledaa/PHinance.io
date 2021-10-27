@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :main_books, dependent: :destroy
+  has_many :abc_products, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # after_create :set_stripe_customer_id

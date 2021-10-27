@@ -1,4 +1,5 @@
 class AbcProduct < ApplicationRecord
+  belongs_to :user
   validates :product_name, presence: true
 
   scope :free, -> { where(user_status: 0) }
