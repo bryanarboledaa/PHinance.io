@@ -9,7 +9,7 @@ FactoryBot.define do
     sequence(:company) { |comp| "ABC Tech Corporation #{comp}" }
     confirmed_at { Time.zone.today }
     after(:build) do |user|
-       user.class.skip_callback(:create, :after, raise: false)
+      user.class.skip_callback(:create, :after, raise: false)
     end
   end
 
