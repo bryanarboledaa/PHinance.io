@@ -1,5 +1,5 @@
 class CheckoutsController < ApplicationController
-  after_action :set_stripe_customer_id, only: [:create]
+  before_action :set_stripe_customer_id, only: [:create]
 
   def create
     @session = Stripe::Checkout::Session.create(
