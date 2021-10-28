@@ -20,10 +20,6 @@ class CheckoutsController < ApplicationController
 
   private
 
-  def to_s
-    email
-  end
-
   def set_stripe_customer_id
     @users = User.all
     return unless current_user.stripe_customer_id.nil?
