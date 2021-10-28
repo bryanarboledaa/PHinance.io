@@ -78,6 +78,7 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
+    dante (0.2.0)
     database_rewinder (0.9.6)
     devise (4.8.0)
       bcrypt (~> 3.0)
@@ -125,6 +126,7 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
+    multi_json (1.15.0)
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -249,6 +251,10 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     stripe (5.39.0)
+    stripe-ruby-mock (3.0.1)
+      dante (>= 0.2.0)
+      multi_json (~> 1.0)
+      stripe (> 5, < 6)
     temple (0.8.2)
     thor (1.1.0)
     thread_safe (0.3.6)
@@ -308,6 +314,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   stripe
+  stripe-ruby-mock (~> 3.0.1)
   turbolinks (~> 5)
   tzinfo-data
   vcr
