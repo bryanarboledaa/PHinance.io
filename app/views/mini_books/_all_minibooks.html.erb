@@ -9,6 +9,7 @@
       <td>Minibook Price</td>
     </tr>
     <% @mini_books.each do |minibook| %>
+    <% if minibook.user == current_user %>
       <tr scope="column">  
         <td><%= minibook.id %></td>
         <td><%= minibook.minibook_name %></td>
@@ -20,6 +21,7 @@
         </td>
       </div>
     </tr>
+    <% end %>
     <% end %>
   </table>
   </div>
