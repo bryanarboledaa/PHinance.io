@@ -1,4 +1,4 @@
-<%= form_with scope: :minibook_entry, url: create_minibook_entry_path, model: @minibook_entry, :local => true do |f| %>
+<%= form_with scope: :minibook_entry, url: mini_book_minibook_entries_path, model: [@minibook_entry.mini_book, @minibook_entry], :local => true do |f| %>
   <h1> Minibook entry</h1>
     <% if @minibook_entry.errors.any? %>
     <ul>
@@ -33,8 +33,10 @@
   <th><%= f.text_field :credit_minib %></th>
 </div>
 
+<th><%= f.number_field :user_id, id: :minibook_entry_user_id, value: current_user.id, type: :hidden %></th>
+
   <div class = "form_button">
-    <button type="button" class="btn btn-outline-light"><%= link_to "Back", all_minibook_entries_path %></button>
+    <button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_book_minibook_entries_path %></button>
     <button type="button" class="btn btn-outline-light"><%= f.submit :"Add" %></button>
   </div>
   </div>

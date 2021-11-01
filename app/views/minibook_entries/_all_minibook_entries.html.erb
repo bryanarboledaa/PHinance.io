@@ -14,6 +14,7 @@
     <td class = "label">Action</td>
   </tr>
   <% @minibook_entries.each do |minibook_entry| %>
+  <% if minibook_entry.user == current_user %>
   <tr scope="column">  
     <td><%= minibook_entry.id %></td>
     <td><%= minibook_entry.mini_book_id %></td>
@@ -25,15 +26,16 @@
     <td><%= calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)%></td>
     <div>
     <td>
-      <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_minibook_entry_path(minibook_entry.id) %></button>
-      <button type="button" class="btn btn-danger"><%= link_to "Delete", minibook_delete_entry_path(minibook_entry.id), method: :destroy, :data => { :confirm => "Are you sure?" } %></button>
+      <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id) %></button>
+      <button type="button" class="btn btn-danger"><%= link_to "Delete", mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id), method: :delete, :data => { :confirm => "Are you sure?" } %></button>
     </td>
     </div>  
   </tr>
   <% end %>
+  <% end %>
   </table>
   </div>
 </div>
-<button type="button" class="btn btn-outline-light"><%= link_to "Back", minibook_entries_path %></button>
-<button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", new_minibook_entry_path %></button>
+<button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_book_minibook_entries_path %></button>
+<button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", new_mini_book_minibook_entry_path(@mini_book_id) %></button>
 
