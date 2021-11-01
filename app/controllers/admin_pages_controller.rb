@@ -1,12 +1,16 @@
 class AdminPagesController < ApplicationController
   def index
     @users = User.all
+    @data = User.group(:status).count
+    @count_free_users = User.where(status: 0).count
+    @count_paid_users = User.where(status: 1).count
   end
 
-  def approve_user_payment
-    @user = User.find(params[:id])
-    @user.update(status: 1)
-    flash[:notice] = 'Successfully approve user payment'
-    redirect_to admins_home_path
+  def all_users
+    @users = User.all
+  end
+
+  def paid_users
+    @users = User.where(status: 1)
   end
 end

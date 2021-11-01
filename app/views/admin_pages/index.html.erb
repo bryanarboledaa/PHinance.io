@@ -2,15 +2,14 @@
 
 <p> Hello Admin! </p>
 
-<% @users.each do |user| %>
-  <% if user.status == 'free' %>
-    <%= user.id %> </ br>
-    <%= user.email %> </ br>
-    <%= user.full_name %> </ br>
-    <%= user.username %> </ br>
-    <%= user.company %> </ br>
-    <%= button_to "Approve", admins_approve_path(id: user.id), method: 'put' %>
-  <% end %>
-<% end %>
+<h5> Free Users: <%= @count_free_users %> </h5> 
+<h5> Paid Users: <%= @count_paid_users %> </h5> 
+
+<%= pie_chart(@data) %>
+
+<%= link_to "All Users", admins_all_users_path %>
+<%= link_to "Paid Users",  admins_paid_users_path %>
+
+
 
 

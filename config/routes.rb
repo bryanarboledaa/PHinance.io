@@ -29,8 +29,9 @@ Rails.application.routes.draw do
   post '/minibook_entry/:id/delete' => 'minibook_entries#destroy_entry', as: 'minibook_delete_entry'
 
   # Admin
-  put 'admins/approve' => 'admin_pages#approve_user_payment'
   get 'admins/home' => 'admin_pages#index'
+  get 'admins/all_users' => 'admin_pages#all_users'
+  get 'admins/paid_users' => 'admin_pages#paid_users'
 
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions" }, only: [:sessions]
   devise_for :users, path: 'users', controllers: { registrations: "users/registrations" }
