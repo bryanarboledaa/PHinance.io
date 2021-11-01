@@ -6,12 +6,4 @@ SeedsServices::CreateAdmin.new.call
 SeedsServices::CreateMainbookEntries.new.call
 SeedsServices::CreateMinibooks.new.call
 SeedsServices::CreateMinibookEntries.new.call
-
-# For Faker
-3.times do
-  AbcProduct.create(
-    product_name: Faker::Appliance.equipment,
-    product_price: Faker::Number.binary(digits: 3), 
-    user_status: [true, false].sample
-  )
-end
+SeedsServices::CreateProducts.new.call

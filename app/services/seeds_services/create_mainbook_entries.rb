@@ -7,8 +7,8 @@ module SeedsServices
       @user = User.all
       @user.each do |uid|
         entry_count = 0
-        10.times do
-          MainBook.create(user_id: uid.id, date_mainb: Time.zone.today, mainbook_description: "Payment for something#{entry_count}", or_vat_reg_tin_mainb: 'asdf345678123', debit_mainb: 50_000.00, credit_mainb: 30_000.00, balance_mainb: 20_000.00)
+        5.times do
+          MainBook.create(user_id: uid.id, date_mainb: Time.zone.today, mainbook_description: "Payment for #{Faker::Appliance.equipment}", or_vat_reg_tin_mainb: Faker::Finance.vat_number, debit_mainb: Faker::Number.decimal(l_digits: 3, r_digits: 3), credit_mainb: Faker::Number.decimal(l_digits: 3, r_digits: 3))
           entry_count += 1
         end
       end
