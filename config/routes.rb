@@ -11,22 +11,28 @@ Rails.application.routes.draw do
   put '/mainbook/:id/edit' => 'main_books#update', as: 'update_mainbook'
   post '/mainbook/:id/delete' => 'main_books#destroy_entry', as: 'delete_entry'
 
+
+  resources :mini_books do
+    resources :minibook_entries
+  end
+
   # MiniBook
-  get '/minibooks' => 'mini_books#index'
-  get '/minibook_new' => 'mini_books#new', as: 'minibook_new'
-  post '/minibook_new' => 'mini_books#create', as: 'minibook_create'
-  get '/minibook/:id/edit' => 'mini_books#edit', as: 'edit_minibook'
-  put '/minibook/:id/edit' => 'mini_books#update', as: 'update_minibook'
-  post '/minibook/:id/delete' => 'mini_books#destroy', as: 'delete_minibook'
+  # get '/minibooks' => 'mini_books#index'
+  # get '/minibooks/:id/show' => 'mini_books#show', as: 'show_minibook_data'
+  # get '/minibook_new' => 'mini_books#new', as: 'minibook_new'
+  # post '/minibook_new' => 'mini_books#create', as: 'minibook_create'
+  # get '/minibook/:id/edit' => 'mini_books#edit', as: 'edit_minibook'
+  # put '/minibook/:id/edit' => 'mini_books#update', as: 'update_minibook'
+  # post '/minibook/:id/delete' => 'mini_books#destroy', as: 'delete_minibook'
 
   # Minibook Entries
-  get '/minibook_entries' => 'minibook_entries#index'
-  get '/all_minibook_entries' => 'minibook_entries#all_minibook_entries'
-  get '/new_minibook_entry' => 'minibook_entries#new', as: 'new_minibook_entry'
-  post '/new_minibook_entry' => 'minibook_entries#create', as: 'create_minibook_entry'
-  get '/minibook_entry/:id/edit' => 'minibook_entries#edit_minibook_entry', as: 'edit_minibook_entry'
-  put '/minibook_entry/:id/edit' => 'minibook_entries#update', as: 'update_minibook_entry'
-  post '/minibook_entry/:id/delete' => 'minibook_entries#destroy_entry', as: 'minibook_delete_entry'
+  # get '/minibook_entries' => 'minibook_entries#index'
+  # get '/all_minibook_entries' => 'minibook_entries#all_minibook_entries'
+  # get '/new_minibook_entry' => 'minibook_entries#new', as: 'new_minibook_entry'
+  # post '/new_minibook_entry' => 'minibook_entries#create', as: 'create_minibook_entry'
+  # get '/minibook_entry/:id/edit' => 'minibook_entries#edit_minibook_entry', as: 'edit_minibook_entry'
+  # put '/minibook_entry/:id/edit' => 'minibook_entries#update', as: 'update_minibook_entry'
+  # post '/minibook_entry/:id/delete' => 'minibook_entries#destroy_entry', as: 'minibook_delete_entry'
 
   # Admin
   get 'admins/home' => 'admin_pages#index'
