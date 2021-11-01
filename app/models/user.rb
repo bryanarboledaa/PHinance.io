@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :main_books, dependent: :destroy
   has_many :mini_books, dependent: :destroy
+  has_many :minibook_entries, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
