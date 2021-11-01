@@ -16,8 +16,10 @@
       <div>
         <td>
           <button type="button" class="btn btn-secondary"><%#= link_to 'BUY NOW', checkouts_create_path(id: minibook.id), remote: true, method: :post %></button>
-          <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_minibook_path(minibook.id) %></button>
-          <button type="button" class="btn btn-danger"><%= link_to "Delete", delete_minibook_path(minibook.id), method: :destroy, :data => { :confirm => "Are you sure?" } %></button>
+          <button type="button" class="btn btn-secondary"><%= link_to 'Data', mini_book_minibook_entries_path(mini_book_id: minibook.id) %></button>
+          <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_mini_book_path(minibook.id) %></button>
+          <button type="button" class="btn btn-danger"><%= link_to "Delete", mini_book_path(minibook.id), method: :delete, :data => { :confirm => "Are you sure?" } %></button>
+          <button type="button" class="btn btn-outline-light"><%#= link_to "Add Entry", new_mini_book_path(minibook.id) %></button>
         </td>
       </div>
     </tr>
@@ -28,6 +30,6 @@
 </div>
 </div>
   <button type="button" class="btn btn-outline-light"><%= link_to "Back", root_path %></button>
-  <button type="button" class="btn btn-outline-light"><%= link_to "Create New Mini Book", minibook_new_path %></button>
+  <button type="button" class="btn btn-outline-light"><%= link_to "Create New Mini Book", new_mini_book_path %></button>
 
 

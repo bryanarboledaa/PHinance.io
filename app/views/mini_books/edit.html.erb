@@ -1,4 +1,4 @@
-<%= form_with scope: :mini_book, url: update_minibook_path, model: @mini_book, method: :put, :local => true do |form| %>
+<%= form_with scope: :mini_book, url: mini_book_path, model: @mini_book, method: :put, :local => true do |form| %>
 
   <% if @mini_book.errors.any? %>
     <ul>
@@ -27,7 +27,7 @@
 <%= form.hidden_field :id, :value => params[:id]%>
 
   <div class = "form_button">
-    <button type="button" class="btn btn-outline-light"><%= link_to "Back", minibooks_path %></button>
+    <button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_books_path %></button>
     <button type="button" class="btn btn-outline-light"><%= form.submit :"Add" %></button>
   </div>
   </div>
