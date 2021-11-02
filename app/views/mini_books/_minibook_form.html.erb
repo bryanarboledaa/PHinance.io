@@ -1,4 +1,4 @@
-<%= form_with scope: :mini_book, url: minibook_create_path, model: @mini_book, :local => true do |form| %>
+<%= form_with scope: :mini_book, url: mini_books_path, model: @mini_book, :local => true do |form| %>
   
 <div>
   <div class="field">
@@ -16,10 +16,14 @@
     <th><%= form.text_field :minibook_price %></th>
   </div>
 
+   <div class="field">
+     <th><%= form.number_field :user_id, id: :mini_book_user_id, value: current_user.id, readonly: true %></th>
+    </div>
+
 <%= form.hidden_field :id, :value => params[:id]%>
 
   <div class = "form_button">
-    <button type="button" class="btn btn-outline-light"><%= link_to "Back", minibooks_path %></button>
+    <button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_books_path %></button>
     <button type="button" class="btn btn-outline-light"><%= form.submit :"Add" %></button>
   </div>
   </div>

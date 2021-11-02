@@ -8,7 +8,7 @@ module SeedsServices
       @minibook.each do |book|
         entry_count = 0
         3.times do
-          MinibookEntry.create(mini_book_id: book.id, date_minib_entry: Time.zone.today, minibook_entry_description: "Payment for something#{entry_count}", or_vat_reg_tin_minib: 'asdf345678', debit_minib: 50_000.00, credit_minib: 30_000.00, minibook_balance: 20_000.00)
+          MinibookEntry.create(user_id: book.user_id, mini_book_id: book.id, date_minib_entry: Time.zone.today, minibook_entry_description: "Payment for #{Faker::Appliance.equipment}", or_vat_reg_tin_minib: Faker::Finance.vat_number, debit_minib: Faker::Number.decimal(l_digits: 3, r_digits: 3), credit_minib: Faker::Number.decimal(l_digits: 3, r_digits: 3))
           entry_count += 1
         end
       end

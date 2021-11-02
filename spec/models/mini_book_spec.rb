@@ -7,4 +7,13 @@ RSpec.describe MiniBook, type: :model do
       expect(minibook).not_to be_valid
     end
   end
+
+  context 'when validating presence' do
+    it { is_expected.to validate_presence_of(:user_id) }
+    it { is_expected.to validate_presence_of(:minibook_name) }
+  end
+
+  context 'when validating associations' do
+    it { is_expected.to belong_to(:user) }
+  end
 end

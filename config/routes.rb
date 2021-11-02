@@ -11,22 +11,10 @@ Rails.application.routes.draw do
   put '/mainbook/:id/edit' => 'main_books#update', as: 'update_mainbook'
   post '/mainbook/:id/delete' => 'main_books#destroy_entry', as: 'delete_entry'
 
-  # MiniBook
-  get '/minibooks' => 'mini_books#index'
-  get '/minibook_new' => 'mini_books#new', as: 'minibook_new'
-  post '/minibook_new' => 'mini_books#create', as: 'minibook_create'
-  get '/minibook/:id/edit' => 'mini_books#edit', as: 'edit_minibook'
-  put '/minibook/:id/edit' => 'mini_books#update', as: 'update_minibook'
-  post '/minibook/:id/delete' => 'mini_books#destroy', as: 'delete_minibook'
 
-  # Minibook Entries
-  get '/minibook_entries' => 'minibook_entries#index'
-  get '/all_minibook_entries' => 'minibook_entries#all_minibook_entries'
-  get '/new_minibook_entry' => 'minibook_entries#new', as: 'new_minibook_entry'
-  post '/new_minibook_entry' => 'minibook_entries#create', as: 'create_minibook_entry'
-  get '/minibook_entry/:id/edit' => 'minibook_entries#edit_minibook_entry', as: 'edit_minibook_entry'
-  put '/minibook_entry/:id/edit' => 'minibook_entries#update', as: 'update_minibook_entry'
-  post '/minibook_entry/:id/delete' => 'minibook_entries#destroy_entry', as: 'minibook_delete_entry'
+  resources :mini_books do
+    resources :minibook_entries
+  end
 
   # Admin
   get 'admins/home' => 'admin_pages#index'
@@ -50,11 +38,11 @@ Rails.application.routes.draw do
   # Products
   get '/products' => 'abc_products#index'
   get '/product/:id/show' => 'abc_products#show', as: 'abc_product_show'
-  get '/product_new' => 'abc_products#new', as: 'abc_product_new'
-  post '/product_new' => 'abc_products#create', as: 'abc_product_create'
-  get '/product/:id/edit' => 'abc_products#edit', as: 'edit_abc_product'
-  put '/product/:id/edit' => 'abc_products#update', as: 'update_abc_product'
-  post '/product/:id/delete' => 'abc_products#destroy', as: 'delete_abc_product'
+  # get '/product_new' => 'abc_products#new', as: 'abc_product_new'
+  # post '/product_new' => 'abc_products#create', as: 'abc_product_create'
+  # get '/product/:id/edit' => 'abc_products#edit', as: 'edit_abc_product'
+  # put '/product/:id/edit' => 'abc_products#update', as: 'update_abc_product'
+  # post '/product/:id/delete' => 'abc_products#destroy', as: 'delete_abc_product'
 
   get 'pricing', to: 'static_pages#pricing'
   post "billing_portal/create", to: "billing_portal#create", as: "billing_portal_create"

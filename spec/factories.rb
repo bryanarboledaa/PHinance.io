@@ -22,12 +22,12 @@ FactoryBot.define do
     or_vat_reg_tin_mainb { 'tin12345' }
     debit_mainb { rand(100..5000) }
     credit_mainb { rand(100..5000) }
-    balance_mainb { rand(100..5000) }
+    association :confirmed_user
   end
 
   factory :create_minibook, class: 'MiniBook' do
-    user_id { rand(1..100) }
     minibook_name { 'Client Avion' }
+    association :confirmed_user
   end
 
   factory :minibook_entries, class: 'MinibookEntry' do
@@ -36,6 +36,6 @@ FactoryBot.define do
     or_vat_reg_tin_minib { 'tin12345' }
     debit_minib { rand(100..5000) }
     credit_minib { rand(100..5000) }
-    minibook_balance { rand(100..5000) }
+    association :confirmed_user
   end
 end
