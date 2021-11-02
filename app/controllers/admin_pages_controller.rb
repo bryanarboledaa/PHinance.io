@@ -1,4 +1,6 @@
 class AdminPagesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @users = User.all
     @data = User.group(:status).count
