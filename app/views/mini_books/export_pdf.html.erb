@@ -1,0 +1,25 @@
+<h3> PDF Generation date: <%= Time.zone.now%> </h3>
+
+<div class = "books-table-header"> ALL MINIBOOKS </div>
+<div class = "books-table-container">
+<div class="table-responsive-lg">
+  <div class="product_list_container">
+  <table class = "table">
+    <tr scope="column">
+      <td>MiniBook ID</td>
+      <td>Minibook Name</td>
+      <td>Minibook Price</td>
+    </tr>
+    <% @mini_books.each do |minibook| %>
+    <% if minibook.user == current_user %>
+      <tr scope="column">  
+        <td><%= minibook.id %></td>
+        <td><%= minibook.minibook_name %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+  </div>
+</div>
+</div>
+
