@@ -17,4 +17,15 @@ RSpec.describe MainBook, type: :model do
       expect(mainbook_entry).not_to be_valid
     end
   end
+
+  context 'when validating presence' do
+    it { is_expected.to validate_presence_of(:user_id) }
+    it { is_expected.to validate_presence_of(:date_mainb) }
+    it { is_expected.to validate_presence_of(:mainbook_description) }
+    it { is_expected.to validate_presence_of(:or_vat_reg_tin_mainb) }
+  end
+
+  context 'when validating associations' do
+    it { is_expected.to belong_to(:user) }
+  end
 end
