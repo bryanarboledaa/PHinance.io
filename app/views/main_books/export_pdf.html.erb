@@ -1,3 +1,5 @@
+<h3> PDF Generation date: <%= Time.zone.now%> </h3>
+
 <div class = "books-table-header"> MAIN BOOK ENTRIES </div>
 <div class = "books-table-container">
   <div class="table-responsive-lg">
@@ -11,7 +13,6 @@
       <td class = "label">DEBIT (+)</td>
       <td class = "label">CREDIT (-)</td>
       <td class = "label">Balance</td>
-      <td class = "label">Action</td>
     </tr>
     <% @main_books.each do |mainbook| %>
     <% if mainbook.user == current_user %>
@@ -23,19 +24,10 @@
       <td><%= mainbook.or_vat_reg_tin_mainb %></td>
       <td><%= mainbook.debit_mainb %></td>
       <td><%= mainbook.credit_mainb %></td>
-      <td><%= calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb) %></td>
-      <div>
-      <td>
-        <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_mainbook_path(mainbook.id) %></button>
-        <button type="button" class="btn btn-danger"><%= link_to "Delete", delete_entry_path(mainbook.id), method: :destroy, :data => { :confirm => "Are you sure?" } %></button>
-      </td>
-      </div>  
+      <td><%= calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb) %></td> 
     </tr>
     <% end %>
     <% end %>
     </table>
   </div>
 </div>
-<button type="button" class="btn btn-outline-light"><%= link_to "Back", mainbook_path %></button>
-<button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", mainbook_new_path %></button>
-<button type="button" class="btn btn-secondary"><%= link_to "Export", mainbook_export_path(format: :pdf) %></button>

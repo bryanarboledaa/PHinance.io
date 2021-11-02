@@ -19,6 +19,10 @@ gem 'stripe'
 # gem 'dotenv-rails'
 gem 'figaro', '~> 1.2'
 gem 'chartkick'
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
