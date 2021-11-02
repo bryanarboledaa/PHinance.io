@@ -18,6 +18,7 @@ gem 'hamlit-rails'
 gem 'stripe'
 # gem 'dotenv-rails'
 gem 'figaro', '~> 1.2'
+gem 'chartkick'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
