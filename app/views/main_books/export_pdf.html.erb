@@ -1,0 +1,33 @@
+<h3> PDF Generation date: <%= Time.zone.now%> </h3>
+
+<div class = "books-table-header"> MAIN BOOK ENTRIES </div>
+<div class = "books-table-container">
+  <div class="table-responsive-lg">
+    <table class="table">
+      <tr scope="column">
+      <td class = "label">User ID</td>
+      <td class = "label">Entry ID</td>
+      <td class = "label">Date</td>
+      <td class = "label">Description</td>
+      <td class = "label">or-or_vat_reg_tin</td>
+      <td class = "label">DEBIT (+)</td>
+      <td class = "label">CREDIT (-)</td>
+      <td class = "label">Balance</td>
+    </tr>
+    <% @main_books.each do |mainbook| %>
+    <% if mainbook.user == current_user %>
+    <tr scope="column">
+      <td><%= mainbook.user_id%></td>  
+      <td><%= mainbook.id %></td>
+      <td><%= mainbook.date_mainb %></td>
+      <td><%= mainbook.mainbook_description %></td>
+      <td><%= mainbook.or_vat_reg_tin_mainb %></td>
+      <td><%= mainbook.debit_mainb %></td>
+      <td><%= mainbook.credit_mainb %></td>
+      <td><%= calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb) %></td> 
+    </tr>
+    <% end %>
+    <% end %>
+    </table>
+  </div>
+</div>
