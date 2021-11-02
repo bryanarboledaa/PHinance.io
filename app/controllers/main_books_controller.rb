@@ -4,6 +4,16 @@ class MainBooksController < ApplicationController
 
   def index; end
 
+  def export_pdf
+    @main_books = MainBook.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Mainbook Entries as of: #{Time.zone.today}", template: 'main_books/export_pdf.html.erb'
+      end
+    end
+  end
+
   def mainbook_entries
     @main_books = MainBook.all
   end

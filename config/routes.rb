@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # MainBook
   get '/mainbook' => 'main_books#index'
+  get '/mainbook_export' => 'main_books#export_pdf', as: 'mainbook_export'
   get '/mainbook_entries' => 'main_books#mainbook_entries'
   get '/mainbook_entry' => 'main_books#new', as: 'mainbook_new'
   post '/mainbook_entry' => 'main_books#create', as: 'mainbook_entry'
