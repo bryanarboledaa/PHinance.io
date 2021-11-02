@@ -50,3 +50,4 @@ end
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'stripe-ruby-mock', '~> 3.0.1', :require => 'stripe_mock'
+gem 'warden', '~> 1.2', '>= 1.2.6'

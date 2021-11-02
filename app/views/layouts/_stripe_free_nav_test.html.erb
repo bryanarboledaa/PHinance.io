@@ -1,0 +1,5 @@
+<% @free_user.each do |freeUser|%>
+<% if freeUser == current_user%>
+   <%= link_to "Pricing", pricing_path %>
+<%end%>
+<%end%>
