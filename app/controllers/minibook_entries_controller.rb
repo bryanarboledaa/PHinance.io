@@ -4,7 +4,6 @@ class MinibookEntriesController < ApplicationController
   before_action :correct_user, only: %i[edit update destroy]
 
   def index
-    # @minibook_entries = MinibookEntry.all
     @mini_book_id = params[:mini_book_id]
     @minibook_entries = MiniBook.find(params[:mini_book_id]).minibook_entries
   end
