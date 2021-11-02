@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   put '/mainbook/:id/edit' => 'main_books#update', as: 'update_mainbook'
   post '/mainbook/:id/delete' => 'main_books#destroy_entry', as: 'delete_entry'
 
-  #Minibooks export to pdf
+  # export to pdf
   get '/mainbook_export' => 'main_books#export_pdf', as: 'mainbook_export'
   get '/minibook_export' => 'mini_books#export_pdf', as: 'minibook_export'
   get 'mini_books/:mini_book_id/minibook_entries_export' => 'minibook_entries#export_pdf', as: 'minibook_entries_export'

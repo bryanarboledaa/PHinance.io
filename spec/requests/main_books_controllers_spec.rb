@@ -82,4 +82,20 @@ RSpec.describe 'MainBooks', type: :request do
       expect(response).to redirect_to redirect_to mainbook_entries_path
     end
   end
+
+  describe 'user gets to export mainbook table to pdf' do
+    before do
+      sign_in confirmed_user
+    end
+
+    it 'renders export to pdf template' do
+      get mainbook_export_path
+      expect(response).to render_template('export_pdf')
+    end
+
+    it 'allows user to export pdf' do
+      get mainbook_export_path
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end

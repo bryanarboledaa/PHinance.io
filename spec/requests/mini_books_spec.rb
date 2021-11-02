@@ -77,4 +77,20 @@ RSpec.describe 'MiniBooks', type: :request do
       expect(response).to redirect_to mini_books_path
     end
   end
+
+  describe 'user gets to export minibooks table to pdf' do
+    before do
+      sign_in confirmed_user
+    end
+
+    it 'renders export to pdf template' do
+      get minibook_export_path
+      expect(response).to render_template('export_pdf')
+    end
+
+    it 'allows user to export pdf' do
+      get minibook_export_path
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end
