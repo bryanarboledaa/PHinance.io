@@ -1,3 +1,5 @@
+<h3> PDF Generation date: <%= Time.zone.now%> </h3>
+
 <div class = "books-table-header"> ALL MINIBOOK Entries</div>
 <div class = "books-table-container">
   <div class="table-responsive-lg">
@@ -11,7 +13,6 @@
     <td class = "label">DEBIT (+)</td>
     <td class = "label">CREDIT (-)</td>
     <td class = "label">Balance</td>
-    <td class = "label">Action</td>
   </tr>
   <% @minibook_entries.each do |minibook_entry| %>
   <% if minibook_entry.user == current_user %>
@@ -23,19 +24,10 @@
     <td><%= minibook_entry.or_vat_reg_tin_minib %></td>
     <td><%= minibook_entry.debit_minib %></td>
     <td><%= minibook_entry.credit_minib %></td>
-    <td><%= calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)%></td>
-    <div>
-    <td>
-      <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id) %></button>
-      <button type="button" class="btn btn-danger"><%= link_to "Delete", mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id), method: :delete, :data => { :confirm => "Are you sure?" } %></button>
-    </td>
-    </div>  
+    <td><%= calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)%></td> 
   </tr>
   <% end %>
   <% end %>
   </table>
   </div>
 </div>
-<button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_book_minibook_entries_path %></button>
-<button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", new_mini_book_minibook_entry_path(@mini_book_id) %></button>
-<button type="button" class="btn btn-outline-light"><%= link_to "Export", minibook_entries_export_path(@mini_book_id, format: :pdf) %></button>
