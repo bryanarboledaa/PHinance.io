@@ -26,9 +26,10 @@ Rails.application.routes.draw do
   get 'admins/paid_users' => 'admin_pages#paid_users'
 
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions" }, only: [:sessions]
-  devise_for :users, path: 'users', controllers: { registrations: "users/registrations" }
 
-  get 'admins/home' => 'admin_pages#index' 
+  # user
+  devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations", confirmations: "users/confirmations" }, only: [:sessions, :registrations, :confirmations]
+ 
   
   # scope '/checkout' do
   #   post 'create', to: 'checkout#create', as: 'checkout_create'
