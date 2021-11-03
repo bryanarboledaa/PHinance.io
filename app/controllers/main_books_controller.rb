@@ -2,7 +2,9 @@ class MainBooksController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: %i[edit update destroy_entry]
 
-  def index; end
+  def index
+    @main_books = MainBook.all
+  end
 
   def export_pdf
     @main_books = MainBook.all
