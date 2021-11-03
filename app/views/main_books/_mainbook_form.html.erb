@@ -11,27 +11,27 @@
 <div>
 <div class="field">
   <th><%= f.label :"Date" %></th>
-  <th><%= f.date_field :date_mainb %></th>
+  <th><%= f.date_field :date_mainb, :required => true %></th>
 </div>
 
 <div class="field">
   <th><%= f.label :"Description"%></th>
-  <th><%= f.text_field :mainbook_description %></th>
+  <th><%= f.text_field :mainbook_description, autofocus: true, placeholder: "Description", :required => true %></th>
 </div>
 
 <div class="field">
   <th><%= f.label :"or-vat-reg-tin"%></th>
-  <th><%= f.text_field :or_vat_reg_tin_mainb %></th>
+  <th><%= f.text_field :or_vat_reg_tin_mainb, placeholder: "OR VAT-REG-TIN" %></th>
 </div>
 
 <div class="field">
   <th><%= f.label :"DEBIT (+)"%></th>
-  <th><%= f.text_field :debit_mainb %></th>
+  <th><%= f.number_field :debit_mainb, placeholder: "DEBIT (+)", step: :any, value: '00.0' %></th>
 </div>
 
 <div class="field">
   <th><%= f.label :"CREDIT (-)"%></th>
-  <th><%= f.text_field :credit_mainb %></th>
+  <th><%= f.number_field :credit_mainb, placeholder: "CREDIT (-)", step: :any, value: '00.0' %></th>
 </div>
 
  <div class="field">
