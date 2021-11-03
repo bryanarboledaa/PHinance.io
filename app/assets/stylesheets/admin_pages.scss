@@ -1,0 +1,26 @@
+.counts {
+  display: flex;
+}
+
+.status-counts {
+  text-align: center;
+  width: 40vw;
+}
+
+@media only screen and (max-width: $mobileS), (max-width: $mobileM), (max-width: $mobileL), (max-width: $tablet) {
+  .counts {
+    display: flex;
+    flex-direction: column;
+  }
+  .status-counts, .main-mini-books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+  }
+  #chart-1 {
+    display: flex !important;
+    align-content: center !important;
+    width: 150px !important;
+  }
+}

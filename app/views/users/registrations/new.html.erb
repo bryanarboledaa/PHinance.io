@@ -1,43 +1,52 @@
-<h2>User Sign up</h2>
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="main-form-page sign-up">
+    <div class="col-lg-6 content-container">
+      <%= image_tag("phinance-iso.png", :alt => "Phinance-logo", :class => "form-page-image") %>
+      <h2 id="h2-reg-content">Stop recording your financials manually, digitized with PHinance now!</h2>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+    <div class="col-lg-6 form-container">
+    <%= render "users/shared/error_messages", resource: resource %> </br>
+      <h1 id="h1-reg-form">Nice choice! Sign up here</h1> </br>
+      
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="form-floating">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"floatingInput" %>
+          <label for="floatingInput">Email address</label>
+        </div> </br>
+
+        <div class="form-floating">
+          <%= f.text_field :full_name, autofocus: true, autocomplete: "full_name", class:"form-control", id:"floatingInput" %>
+          <label for="floatingInput">Full Name</label>
+        </div> </br>
+
+        <div class="form-floating">
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", class:"form-control", id:"floatingInput" %>
+          <label for="floatingInput">Username</label>
+        </div> </br>
+
+        <div class="form-floating">
+          <%= f.text_field :company, autofocus: true, autocomplete: "company", class:"form-control", id:"floatingInput" %>
+          <label for="floatingInput">Company</label>
+        </div> </br>
+
+        <div class="form-floating">
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form-control", id:"floatingInput" %>
+          <label for="floatingInput">Password</label>
+        </div> </br>
+
+        <div class="form-floating">
+          <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", class:"form-control", id:"floatingInput" %>
+          <label for="floatingInput">Confirm Password</label>
+        </div> </br>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "submit-btn" %>
+        </div>
+      <% end %>
+    </div>
   </div>
+</section>
 
-  <div class="field">
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name, autocomplete: "full-name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autocomplete: "username" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :company %><br />
-    <%= f.text_field :company, autocomplete: "company" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-<%= render "users/shared/links" %>

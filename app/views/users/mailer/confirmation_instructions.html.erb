@@ -1,5 +1,22 @@
-<p>Welcome <%= @email to PHinance %>!</p>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  </head>
 
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  <body>
+    <div class="mailer-container">  
+      <div class="mailer-message-container">
+        <%= image_tag("phinance-logo.svg") %>
+        <p>Welcome <%= @email %> to PHinance App!</p> </br>
+        <p>You can confirm your account email through the link below:</p>
+        <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+      </div>
+      <div class="mailer-content-container">
+        <%= image_tag("Finance app-bro.svg") %>
+        <h2 id="h2-content">Your Accounting Software in your pocket!</h2>
+      </div>
+    </div>
+  </body>
+</html>

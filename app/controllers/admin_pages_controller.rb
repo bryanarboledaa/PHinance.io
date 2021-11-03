@@ -6,6 +6,8 @@ class AdminPagesController < ApplicationController
     @data = User.group(:status).count
     @count_free_users = User.where(status: 0).count
     @count_paid_users = User.where(status: 1).count
+    @mainbooks = MainBook.count
+    @minibooks = MiniBook.count
   end
 
   def all_users

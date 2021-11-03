@@ -11,5 +11,18 @@ class User < ApplicationRecord
   validates :username, length: { minimum: 6 }
   validates :email, presence: true, uniqueness: true
 
+<<<<<<< Updated upstream
   enum status: { free: 0, paid: 1 }
+=======
+  enum status: { Free: 0, Paid: 1 }
+
+  # def to_s
+  #   email
+  # end
+
+  # def set_stripe_customer_id
+  #   customer = Stripe::Customer.create(email: email)
+  #   update(stripe_customer_id: customer.id)
+  # end
+>>>>>>> Stashed changes
 end

@@ -1,0 +1,141 @@
+$color_darkblue: #222C3C;
+$color_mustard: #D8B26E;
+$color_brown: #B69B7D;
+$color_cream: #E2E0D5;
+$color_offwhite: #EDF2F4;
+$mainFont: 'Roboto Condensed', sans-serif;
+$subFont: 'Roboto', sans-serif;;
+
+$mobileS: 320px;
+$mobileM: 375px;
+$mobileL: 430px;
+$tablet: 770px;
+$laptop: 1024px;
+
+
+form {
+  width: 30vw !important;
+}
+
+#login {
+  text-align: center;
+  color: $color_darkblue;
+}
+
+.submit-btn {
+  padding: 10px 10px;
+	background-color: $color_darkblue !important;
+	color: $color_mustard !important;
+	font: 120% $mainFont;
+  border-radius: 8px;
+}
+
+.submit-btn:focus {
+  box-shadow: 0 0 0 0.25rem #7952b344;
+}
+
+a {
+  color: $color_brown;
+}
+
+.counts {
+  display: flex;
+}
+
+.status-counts {
+  text-align: center;
+  width: 40vw;
+}
+
+.main-mini-books {
+  width: 50vw;
+}
+
+.form-page-image {
+  width: 500px;
+}
+
+.content-container {
+  display: flex;
+  width: 55%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-form-page {
+  display: flex;
+  width: 100%;
+  #h2-content {
+    font: 200% $mainFont;
+  }
+}
+
+.form-container {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#h5-form {
+  color: $color_darkblue;
+}
+
+#h1-reg-form {
+  font-size: 300%;
+}
+
+#h2-reg-content {
+  font: $mainFont;
+  font-size: 150%;
+}
+
+@media only screen and (max-width: $mobileS), (max-width: $mobileM), (max-width: $mobileL), (max-width: $tablet) {
+  .form-row {
+    flex-direction: column;
+    width: 100%;
+    #h2o-mo {
+      font: 100% $mainFont;
+    }
+  .content-container {
+    display: none
+  }
+  }
+  .form-page-image {
+    width: 250px;
+  }
+  .form-container {
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+  }
+  #h1-form {
+    font-size: 150%;
+  }
+  #h5-form {
+    font-size: 80%;
+  }
+  .form {
+    width: 100%;
+  }
+  .form input {
+    width: 150%;
+  }
+  .counts {
+    display: flex;
+    flex-direction: column;
+  }
+  .status-counts, .main-mini-books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+  }
+  #chart-1 {
+    display: flex !important;
+    align-content: center !important;
+    width: 150px !important;
+  }
+}
+
