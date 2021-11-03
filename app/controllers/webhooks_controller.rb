@@ -28,8 +28,6 @@ class WebhooksController < ApplicationController
       @user = User.find_by(stripe_customer_id: session.customer)
       @user.update(
         status: 1
-        subscription_status: subscription.status,
-        plan: subscription.items.data[0].lookup_key
       )
       PaymentMailer.with(email: @user.email).payment_notification.deliver_later
       PaymentMailer.with(email: @admin_email).admin_payment_notification.deliver_later

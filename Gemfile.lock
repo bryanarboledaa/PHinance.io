@@ -324,7 +324,6 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   vcr
-  warden (~> 1.2, >= 1.2.6)
   web-console (>= 3.3.0)
   webmock
   webpacker (~> 4.0)
