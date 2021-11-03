@@ -11,10 +11,19 @@
       <li class="nav-item">
         <a class="nav-link"><%= link_to 'Mainbook', mainbook_path%></a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link"><%= link_to 'My Dashboard', user_dashboard_path%></a>
+      </li>
+
+      <%if current_user.status = 'paid' %>
   
       <li class="nav-item">
         <a class="nav-link"><%= link_to 'Minibooks', mini_books_path%></a>
       </li>
+
+      <% end %>
+
 
       <li class="nav-item">
         <a class="nav-link"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></a>
