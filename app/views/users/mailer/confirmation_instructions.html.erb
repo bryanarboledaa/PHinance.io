@@ -8,13 +8,13 @@
   <body>
     <div class="mailer-container">  
       <div class="mailer-message-container">
-        <%= image_tag("phinance-logo.svg") %>
+        <img src="https://i.ibb.co/4JxTscf/phinance-logo.png" alt="phinance-logo" border="0">
         <p>Welcome <%= @email %> to PHinance App!</p> </br>
         <p>You can confirm your account email through the link below:</p>
         <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
       </div>
       <div class="mailer-content-container">
-        <%= image_tag("Finance app-bro.svg") %>
+      <img src="https://i.ibb.co/9gwzcrK/phinance-app.png" alt="phinance-app" border="0">
         <h2 id="h2-content">Your Accounting Software in your pocket!</h2>
       </div>
     </div>
