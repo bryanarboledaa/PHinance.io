@@ -14,20 +14,26 @@
     <td class = "label">CREDIT (-)</td>
     <td class = "label">Balance</td>
   </tr>
+  <% running_total = 0 %>
   <% @minibook_entries.each do |minibook_entry| %>
   <% if minibook_entry.user == current_user %>
   <tr scope="column">  
     <td><%= minibook_entry.id %></td>
     <td><%= minibook_entry.mini_book_id %></td>
-    <td><%= minibook_entry.date_minib_entry %></td>
+    <td><%= minibook_entry.date_minib_entry.strftime('%B %d, %Y') %></td>
     <td><%= minibook_entry.minibook_entry_description %></td>
     <td><%= minibook_entry.or_vat_reg_tin_minib %></td>
-    <td><%= minibook_entry.debit_minib %></td>
-    <td><%= minibook_entry.credit_minib %></td>
-    <td><%= calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)%></td> 
+    <td><%= number_to_currency(minibook_entry.debit_minib, unit: ' PHP ') %></td>
+    <td><%= number_to_currency(minibook_entry.credit_minib, unit: ' PHP ') %></td>
+    <td><%= number_to_currency(calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib), unit: ' PHP ') %></td>
+    <td><% running_total = calculate_total_balance(running_total, calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)) %></td>
   </tr>
   <% end %>
   <% end %>
   </table>
   </div>
+</div>
+
+<div>
+<h2> TOTAL BALANCE: <%= number_to_currency(running_total, unit: ' PHP ') %></h2>
 </div>

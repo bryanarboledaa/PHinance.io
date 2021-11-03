@@ -13,17 +13,19 @@
     <td class = "label">Balance</td>
     <td class = "label">Action</td>
   </tr>
+  <% running_total = 0 %>
   <% @minibook_entries.each do |minibook_entry| %>
   <% if minibook_entry.user == current_user %>
   <tr scope="column">  
     <td><%= minibook_entry.id %></td>
     <td><%= minibook_entry.mini_book_id %></td>
-    <td><%= minibook_entry.date_minib_entry %></td>
+    <td><%= minibook_entry.date_minib_entry.strftime('%B %d, %Y') %></td>
     <td><%= minibook_entry.minibook_entry_description %></td>
     <td><%= minibook_entry.or_vat_reg_tin_minib %></td>
-    <td><%= minibook_entry.debit_minib %></td>
-    <td><%= minibook_entry.credit_minib %></td>
-    <td><%= calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)%></td>
+    <td><%= number_to_currency(minibook_entry.debit_minib, unit: ' PHP ') %></td>
+    <td><%= number_to_currency(minibook_entry.credit_minib, unit: ' PHP ') %></td>
+    <td><%= number_to_currency(calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib), unit: ' PHP ') %></td>
+    <td><% running_total = calculate_total_balance(running_total, calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)) %></td>
     <div>
     <td>
       <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id) %></button>
@@ -36,6 +38,7 @@
   </table>
   </div>
 </div>
+<%= number_to_currency(running_total, unit: ' PHP ') %>
 <button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_book_minibook_entries_path %></button>
 <button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", new_mini_book_minibook_entry_path(@mini_book_id) %></button>
 <button type="button" class="btn btn-outline-light"><%= link_to "Export", minibook_entries_export_path(@mini_book_id, format: :pdf) %></button>

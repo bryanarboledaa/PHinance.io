@@ -9,39 +9,40 @@
     </li>
 </ol>
 <div class="row">
+  <% running_total = 0 %>
+  <% running_total_credit = 0 %>
+  <% running_total_debit = 0 %>
+    <% @main_books.each do |mainbook| %>
+    <% if mainbook.user == current_user %>
+      <% running_total = calculate_total_balance(running_total, calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb)) %></td>
+      <% running_total_debit = calculate_total_debit(running_total_debit, mainbook.debit_mainb) %></td>
+      <% running_total_credit = calculate_total_credit(running_total_credit, mainbook.credit_mainb) %></td>
+    <% end %>
+    <% end %>
     <div class="col-xl-3 col-sm-3">
         <div class="card bg-success text-white mb-4">
             <div class="card-body">Total Balance</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-              <a class="small text-white stretched-link">View Details</a>
+              <a class="small text-white stretched-link"><%= number_to_currency(running_total, unit: ' PHP ') %></a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-sm-3">
         <div class="card bg-success text-white mb-4">
-            <div class="card-body">Total Expenses</div>
+            <div class="card-body">Total Debit (+)</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link">View Details</a>
+            <a class="small text-white stretched-link"><%= number_to_currency(running_total_debit, unit: ' PHP ') %></a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-sm-3">
         <div class="card bg-success text-white mb-4">
-            <div class="card-body">Total Entries</div>
+            <div class="card-body">Total Credit (-)</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link">View Details</a>
+            <a class="small text-white stretched-link"><%= number_to_currency(running_total_credit, unit: ' PHP ') %></a>
                 <div class="small text-white"></i></div>
-            </div>
-        </div>
-    </div>
-       <div class="col-xl-3 col-sm-3">
-        <div class="card bg-success text-white mb-4">
-            <div class="card-body">Total Entries</div>
-            <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link">View Details</a>
-                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>

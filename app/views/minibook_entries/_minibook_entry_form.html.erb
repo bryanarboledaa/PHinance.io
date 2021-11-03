@@ -10,27 +10,27 @@
 <div>
 <div class="field">
   <th><%= f.label :"Date" %></th>
-  <th><%= f.date_field :date_minib_entry %></th>
+  <th><%= f.date_field :date_minib_entry, :required => true %></th>
 </div>
 
 <div class="field">
   <th><%= f.label :"Description"%></th>
-  <th><%= f.text_field :minibook_entry_description %></th>
+  <th><%= f.text_field :minibook_entry_description, autofocus: true, placeholder: "Description", :required => true %></th>
 </div>
 
 <div class="field">
   <th><%= f.label :"or-vat-reg-tin"%></th>
-  <th><%= f.text_field :or_vat_reg_tin_minib %></th>
+  <th><%= f.text_field :or_vat_reg_tin_minib, placeholder: "OR VAT-REG-TIN" %></th>
 </div>
 
 <div class="field">
   <th><%= f.label :"DEBIT (+)"%></th>
-  <th><%= f.text_field :debit_minib %></th>
+  <th><%= f.number_field :debit_minib, placeholder: "DEBIT (+)", step: :any, value: '00.0' %></th>
 </div>
 
 <div class="field">
   <th><%= f.label :"CREDIT (-)"%></th>
-  <th><%= f.text_field :credit_minib %></th>
+  <th><%= f.number_field :credit_minib, placeholder: "CREDIT (-)", step: :any, value: '00.0' %></th>
 </div>
 
 <th><%= f.number_field :user_id, id: :minibook_entry_user_id, value: current_user.id, type: :hidden %></th>

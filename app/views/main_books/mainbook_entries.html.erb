@@ -13,17 +13,19 @@
       <td class = "label">Balance</td>
       <td class = "label">Action</td>
     </tr>
+    <% running_total = 0 %>
     <% @main_books.each do |mainbook| %>
     <% if mainbook.user == current_user %>
     <tr scope="column">
       <td><%= mainbook.user_id%></td>  
       <td><%= mainbook.id %></td>
-      <td><%= mainbook.date_mainb %></td>
+      <td><%= mainbook.date_mainb.strftime('%B %d, %Y') %></td>
       <td><%= mainbook.mainbook_description %></td>
       <td><%= mainbook.or_vat_reg_tin_mainb %></td>
-      <td><%= mainbook.debit_mainb %></td>
-      <td><%= mainbook.credit_mainb %></td>
-      <td><%= calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb) %></td>
+      <td><%= number_to_currency(mainbook.debit_mainb, unit: ' PHP ') %></td>
+      <td><%= number_to_currency(mainbook.credit_mainb, unit: ' PHP ') %></td>
+      <td><%= number_to_currency(calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb), unit: ' PHP ') %></td>
+      <td><% running_total = calculate_total_balance(running_total, calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb)) %></td>
       <div>
       <td>
         <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_mainbook_path(mainbook.id) %></button>
@@ -36,6 +38,7 @@
     </table>
   </div>
 </div>
+<%= number_to_currency(running_total, unit: ' PHP ') %>
 <button type="button" class="btn btn-outline-light"><%= link_to "Back", mainbook_path %></button>
 <button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", mainbook_new_path %></button>
 <button type="button" class="btn btn-secondary"><%= link_to "Export", mainbook_export_path(format: :pdf) %></button>
