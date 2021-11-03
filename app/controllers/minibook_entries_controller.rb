@@ -8,6 +8,17 @@ class MinibookEntriesController < ApplicationController
     @minibook_entries = MiniBook.find(params[:mini_book_id]).minibook_entries
   end
 
+  def export_pdf
+    @mini_book_id = params[:mini_book_id]
+    @minibook_entries = MiniBook.find(params[:mini_book_id]).minibook_entries
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Minibook entry #{@mini_book.minibook_name} as of: #{Time.zone.today}", template: 'minibook_entries/export_pdf.html.erb'
+      end
+    end
+  end
+
   def new
     @minibook_entry = @mini_book.minibook_entries.build
   end

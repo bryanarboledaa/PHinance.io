@@ -6,6 +6,16 @@ class MiniBooksController < ApplicationController
     @mini_books = MiniBook.all
   end
 
+  def export_pdf
+    @mini_books = MiniBook.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Minibooks as of: #{Time.zone.today}", template: 'mini_books/export_pdf.html.erb'
+      end
+    end
+  end
+
   def show
     @mini_book = MiniBook.find(params[:id])
   end
