@@ -1,17 +1,16 @@
-$color_darkblue: #222C3C;
-$color_mustard: #D8B26E;
-$color_brown: #B69B7D;
-$color_cream: #E2E0D5;
-$color_offwhite: #EDF2F4;
-$mainFont: 'Roboto Condensed', sans-serif;
-$subFont: 'Roboto', sans-serif;;
+$color_darkblue: #222c3c;
+$color_mustard: #d8b26e;
+$color_brown: #b69b7d;
+$color_cream: #e2e0d5;
+$color_offwhite: #edf2f4;
+$mainFont: "Roboto Condensed", sans-serif;
+$subFont: "Roboto", sans-serif;
 
 $mobileS: 320px;
 $mobileM: 375px;
 $mobileL: 430px;
 $tablet: 770px;
 $laptop: 1024px;
-
 
 form {
   width: 30vw !important;
@@ -24,9 +23,9 @@ form {
 
 .submit-btn {
   padding: 10px 10px;
-	background-color: $color_darkblue !important;
-	color: $color_mustard !important;
-	font: 120% $mainFont;
+  background-color: $color_darkblue !important;
+  color: $color_mustard !important;
+  font: 120% $mainFont;
   border-radius: 8px;
 }
 
@@ -93,16 +92,19 @@ a {
   font-size: 150%;
 }
 
-@media only screen and (max-width: $mobileS), (max-width: $mobileM), (max-width: $mobileL), (max-width: $tablet) {
+@media only screen and (max-width: $mobileS),
+  (max-width: $mobileM),
+  (max-width: $mobileL),
+  (max-width: $tablet) {
   .form-row {
     flex-direction: column;
     width: 100%;
     #h2o-mo {
       font: 100% $mainFont;
     }
-  .content-container {
-    display: none
-  }
+    .content-container {
+      display: none;
+    }
   }
   .form-page-image {
     width: 250px;
@@ -128,7 +130,8 @@ a {
     display: flex;
     flex-direction: column;
   }
-  .status-counts, .main-mini-books {
+  .status-counts,
+  .main-mini-books {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,4 +143,3 @@ a {
     width: 150px !important;
   }
 }
-

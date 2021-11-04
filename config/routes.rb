@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'static_pages#home_page'
-
+  
   # users
   get '/user_dashboard' => 'users#user_dashboard', as: 'user_dashboard'
 

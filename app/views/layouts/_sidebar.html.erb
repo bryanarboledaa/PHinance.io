@@ -1,63 +1,84 @@
-<nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+<nav
+  class="navbar navbar-expand d-flex flex-column align-item-start"
+  id="sidebar"
+>
   <a class="navbar-brand text-light mt-5">
     <div class="display-5"><%= link_to 'PHinance.io', root_path %></div>
   </a>
   <ul class="navbar-nav d-flex flex-column mt-5 w-100">
     <% if current_user %>
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Home', root_path %></a>
-      </li>
-    
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Mainbook', mainbook_path%></a>
-      </li>
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'Home', root_path %></a>
+    </li>
 
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'My Dashboard', user_dashboard_path%></a>
-      </li>
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'My Dashboard', user_dashboard_path%></a>
+    </li>
 
-      <%if current_user.status = 'paid' %>
-  
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Minibooks', mini_books_path%></a>
-      </li>
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'Mainbook', mainbook_path%></a>
+    </li>
 
-      <% end %>
+    <%if current_user.status == 'paid' %>
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'Minibooks', mini_books_path%></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"
+        ><%= link_to "Billing Portal", billing_portal_create_path, method: :post
+        %></a
+      >
+    </li>
 
-
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></a>
-      </li>
-    <% elsif current_admin %>
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Home', admins_home_path%></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'All Users', admins_all_users_path%></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Paid Users', admins_paid_users_path%></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Sign out', destroy_admin_session_path, method: :delete%></a>
-      </li>
     <% else %>
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Home', root_path%></a>
-      </li>
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'Subscription', products_path %></a>
+    </li>
+    <% end %>
 
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Register', new_user_registration_path %></a>
-      </li>
+    <li class="nav-item">
+      <a class="nav-link"
+        ><%= link_to 'Sign out', destroy_user_session_path, method: :delete
+        %></a
+      >
+    </li>
+    <% elsif current_admin %>
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'Home', admins_home_path%></a>
+    </li>
 
-      <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Sign in', new_user_session_path %></a>
-      </li>
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'All Users', admins_all_users_path%></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'Paid Users', admins_paid_users_path%></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link"
+        ><%= link_to 'Sign out', destroy_admin_session_path, method:
+        :delete%></a
+      >
+    </li>
+    <% else %>
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'Home', root_path%></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link"
+        ><%= link_to 'Register', new_user_registration_path %></a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'Sign in', new_user_session_path %></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link"><%= link_to 'ABC Tech Products', root_path %></a>
+    </li>
     <% end %>
   </ul>
 </nav>
-
-
