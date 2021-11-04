@@ -1,0 +1,61 @@
+<section class="p-3 my-container">
+  <div class="books-table-container">
+    <div class="container">
+      <div class="card-body", id = "book__entry__table">
+        <div class="table-responsive">
+          <table class="table table-borderless text-white mb-0">
+            <thead>
+              <tr>
+                <td class="label_book_header">Entry ID</td>
+                <td class="label_book_header">Date</td>
+                <td class="label_book_header">Description</td>
+                <td class="label_book_header">or-or_vat_reg_tin</td>
+                <td class="label_book_header">DEBIT (+)</td>
+                <td class="label_book_header">CREDIT (-)</td>
+                <td class="label_book_header">Balance</td>
+                <td class="label_book_header">Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% running_total = 0 %> <% @main_books.each do |mainbook| %> <% if
+              mainbook.user == current_user %>
+              <tr scope="column">
+                <td class="label_book_content"><%= mainbook.id %></td>
+                <td class="label_book_content"><%= mainbook.date_mainb.strftime('%B %d, %Y') %></td>
+                <td class="label_book_content"><%= mainbook.mainbook_description %></td>
+                <td class="label_book_content"><%= mainbook.or_vat_reg_tin_mainb %></td>
+                <td class="label_book_content">
+                  <%= number_to_currency(mainbook.debit_mainb, unit: ' PHP ') %>
+                </td>
+                <td class="label_book_content">
+                  <%= number_to_currency(mainbook.credit_mainb, unit: ' PHP ')
+                  %>
+                </td>
+                <td class="label_book_content">
+                  <%= number_to_currency(calculate_balance(mainbook.debit_mainb,
+                  mainbook.credit_mainb), unit: ' PHP ') %>
+                </td>
+                <td>
+                  <% running_total = calculate_total_balance(running_total,
+                  calculate_balance(mainbook.debit_mainb,
+                  mainbook.credit_mainb)) %>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-outline-light", id="table__inside__buttons">
+                    <%= link_to "Edit", edit_mainbook_path(mainbook.id) %>
+                  </button>
+                  <button type="button" class="btn btn-outline-light", id="table__inside__buttons">
+                    <%= link_to "Delete", delete_entry_path(mainbook.id),
+                    method: :destroy, :data => { :confirm => "Are you sure?" }
+                    %>
+                  </button>
+                </td>
+              </tr>
+              <% end %> <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

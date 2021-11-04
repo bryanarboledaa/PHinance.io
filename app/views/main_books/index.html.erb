@@ -1,50 +1,35 @@
 <div class="container-fluid px-6">
-  <h1 class="mt-4">DASHBOARD</h1>
-  <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">
-      <%= current_user.present? ? "" : "Stranger" %>
-      <h2>Welcome, <%= current_user.username %></h2>
-      <button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", mainbook_new_path %></button>
-      <button type="button" class="btn btn-outline-light"><%= link_to "Show Main Book Entries", mainbook_entries_path %></button>
-    </li>
-</ol>
-<div class="row">
-  <% running_total = 0 %>
-  <% running_total_credit = 0 %>
-  <% running_total_debit = 0 %>
-    <% @main_books.each do |mainbook| %>
-    <% if mainbook.user == current_user %>
-      <% running_total = calculate_total_balance(running_total, calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb)) %></td>
-      <% running_total_debit = calculate_total_debit(running_total_debit, mainbook.debit_mainb) %></td>
-      <% running_total_credit = calculate_total_credit(running_total_credit, mainbook.credit_mainb) %></td>
+  <div class="row">
+    <% running_total = 0 %> <% running_total_credit = 0 %> <%
+    running_total_debit = 0 %> <% @main_books.each do |mainbook| %> <% if
+    mainbook.user == current_user %> <% running_total =
+    calculate_total_balance(running_total,
+    calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb)) %> <% end %>
     <% end %>
-    <% end %>
-    <div class="col-xl-3 col-sm-3">
-        <div class="card bg-success text-white mb-4">
-            <div class="card-body">Total Balance</div>
-            <div class="card-footer d-flex align-items-center justify-content-between">
-              <a class="small text-white stretched-link"><%= number_to_currency(running_total, unit: ' PHP ') %></a>
-                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-            </div>
+    <div>
+      <div class="card" id= "card_mainbook_header">
+        <div class="card-body" , id="mainbook__header">MAINBOOK ENTRIES</div>
+        <div
+          class="card-footer d-flex align-items-center justify-content-between"
+        >
+          <h5><%= "Total balance: "%><%= number_to_currency(running_total, unit: '₱ ') %></h5>
         </div>
+      </div>
+      <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">
+              <button type="button" class="btn btn-outline-light">
+                <%= link_to "Add Entry", mainbook_new_path %>
+              </button>
+              <button type="button" class="btn btn-outline-light">
+                <%= link_to "Export", mainbook_export_path(format: :pdf) %>
+              </button>
+              <button type="button" class="btn btn-outline-light">
+                <%= link_to "Back", mainbook_path %>
+              </button>
+            </li>
+          </ol>
     </div>
-    <div class="col-xl-3 col-sm-3">
-        <div class="card bg-success text-white mb-4">
-            <div class="card-body">Total Debit (+)</div>
-            <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link"><%= number_to_currency(running_total_debit, unit: ' PHP ') %></a>
-                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-sm-3">
-        <div class="card bg-success text-white mb-4">
-            <div class="card-body">Total Credit (-)</div>
-            <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link"><%= number_to_currency(running_total_credit, unit: ' PHP ') %></a>
-                <div class="small text-white"></i></div>
-            </div>
-        </div>
-    </div>
-</div>
+  </div>
 
+  <%= render 'all_mainbook_entries'%>
+</div>
