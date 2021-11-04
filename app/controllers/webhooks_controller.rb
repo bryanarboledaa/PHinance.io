@@ -36,7 +36,7 @@ class WebhooksController < ApplicationController
       @user = User.find_by(stripe_customer_id: subscription.customer)
       @user.update(
         subscription_status: subscription.status,
-        plan: subscription.items.data[0].price.lookup_key,
+        plan: subscription.items.data[0].price.lookup_key
       )
     end
 
