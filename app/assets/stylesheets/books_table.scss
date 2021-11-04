@@ -1,34 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-$color_darkblue: #222C3C;
-$color_mustard: #D8B26E;
-$color_brown: #B69B7D;
-$color_cream: #E2E0D5;
-$color_offwhite: #EDF2F4;
-$mainFont: 'Roboto Condensed', sans-serif;
-$subFont: 'Roboto', sans-serif;;
+$color_darkblue: #222c3c;
+$color_mustard: #d8b26e;
+$color_brown: #b69b7d;
+$color_cream: #e2e0d5;
+$color_offwhite: #edf2f4;
+$mainFont: "Roboto Condensed", sans-serif;
+$subFont: "Roboto", sans-serif;
 
 $mobileS: 320px;
 $mobileM: 375px;
 $mobileL: 430px;
 $tablet: 770px;
 $laptop: 1024px;
-
-//========MAINBOOK DASHBOARD========//
-.card {
-  height: 20vh;
-  border-color: $color_darkblue !important;
-}
-
-.card-body {
-  background-color: $color_darkblue!important;
-}
-
-.card-footer { 
-  height: 20vh;
-  background-color: $color_brown !important;
-}
 
 //========MAINBOOK TABLE========//
 
@@ -41,14 +26,4 @@ $laptop: 1024px;
 }
 .books-table-container {
   height: 55vh;
-  overflow-y: scroll;
 }
-
-.label, td {
-  font: 110% $mainFont;
-}
-.table, td {
-  font: 100% $subFont;
-}
-
-
