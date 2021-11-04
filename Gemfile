@@ -19,6 +19,7 @@ gem 'stripe'
 # gem 'dotenv-rails'
 gem 'figaro', '~> 1.2'
 gem 'chartkick'
+gem 'groupdate'
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary", group: :development
 gem "wkhtmltopdf-heroku", group: :production
