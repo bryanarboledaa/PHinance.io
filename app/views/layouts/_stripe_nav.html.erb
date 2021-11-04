@@ -1,7 +1,5 @@
-  <%= link_to "Products", products_path %> <%# ABC TECH PRODUCTS in the future%>
-  <% if current_user %> <%# For Testing API SUBSCRIPTION ONLY%>
-    <%= link_to current_user.email, edit_user_registration_path %>
-    <h6>Stripe Customer ID:<%= current_user.stripe_customer_id %></h6>
-    <h6>Plan:<%= current_user.plan %></h6>
-    <h6>Subscription Status:<%= current_user.status %> 
-  <%end %>
+<% if current_user %>
+  <h6>Customer ID:<%= current_user.stripe_customer_id %></h6>
+  <h6>Plan:<%= current_user.plan %></h6>
+  <h6>Subscription Status:<%= current_user.status %></h6>
+<%end %>

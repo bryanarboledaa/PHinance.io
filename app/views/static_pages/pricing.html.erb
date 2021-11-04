@@ -1,26 +1,27 @@
-<div class = "books-table-header"> PRICING </div>
-<div class = "books-table-container">
-  <div class="table-responsive-lg">
-    <table class="table">
-      <tr scope="column">
-      <td class = "label">Product Name</td>
-      <td class = "label">Product ID</td>
-      <td class = "label">Amount</td>
-      <td class = "label">Currency</td>
-      <td class = "label">Recurring/Interval</td>
-    </tr>
-<% @pricing = api_stripe_price_fetch() %>
-<% @pricing.each do |price| %>
-    <tr scope="column">
-      <td><%= price.product.name %></td>  
-      <td><%= price.id %></td>
-      <td><%= price.unit_amount/100 %></td>
-      <td><%= price.currency %></td>
-      <td><%= price.recurring.interval %></td>
-      <div>
-      <td>
-        <%= link_to "Checkout", checkout_create_path(price: price.id), method: :post, remote: true%>
-      </td>
-      </div>  
-    </tr>
+<div class="pricing__product__container">
+  <% @pricing = api_stripe_price_fetch() %> <% @pricing.each do |price| %>
+  <div class="container" style="margin-top: 50px">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card-sl">
+          <div class="card-image">
+            <img
+              src="https://www.thebalance.com/thmb/TQM3ruyQPyOc4IWKHyyr_3T2X2w=/2121x1414/filters:fill(auto,1)/GettyImages-1160738322-3e50c7227c51497ba06cf1a34f91aaa0.jpg"
+            />
+          </div>
+          <a class="card-action"
+            ><i class="fa fa-heart"></i><%= price.recurring.interval %></a
+          >
+          <div class="card-heading"><%= price.product.name %></div>
+          <div class="card-text">Minibooks</div>
+          <div class="card-text">
+            <%= price.currency %><%= " "%><%= price.unit_amount/100 %>
+          </div>
+          <%= link_to "Checkout", checkout_create_path(price: price.id), method:
+          :post, remote: true%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>

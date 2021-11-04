@@ -1,6 +1,7 @@
 class MiniBooksController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: %i[edit update destroy]
+  before_action :check_user_status
 
   def index
     @mini_books = MiniBook.all
@@ -60,6 +61,10 @@ class MiniBooksController < ApplicationController
   def correct_user
     @mini_book = current_user.mini_books.find_by(id: params[:id])
     redirect_to mini_books_path, notice: 'Not Authorized to access this page' if @mini_book.nil?
+  end
+
+  def check_user_status
+    redirect_to products_path, notice: 'Subscribe now to access the page!' if current_user.status == 'free'
   end
 
   private
