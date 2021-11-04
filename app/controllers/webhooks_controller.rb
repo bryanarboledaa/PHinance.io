@@ -31,12 +31,12 @@ class WebhooksController < ApplicationController
       )
       PaymentMailer.with(email: @user.email).payment_notification.deliver_later
       PaymentMailer.with(email: @admin_email).admin_payment_notification.deliver_later
-    when 'customer.subscription.updated', 'customer.subscription.deleted'
+    when 'customer.subscription.updated', 'customer.subscription.deleted', 'customer.subscription.created'
       subscription = event.data.object
       @user = User.find_by(stripe_customer_id: subscription.customer)
       @user.update(
         subscription_status: subscription.status,
-        plan: subscription.items.data[0].lookup_key
+        plan: subscription.items.data[0].price.lookup_key,
       )
     end
 
