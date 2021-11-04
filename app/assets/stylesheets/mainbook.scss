@@ -85,11 +85,7 @@ table th {
 }
 
 #buttons__books {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: -7%;
+  margin-left: 5%;
   #book__buttons {
     background-color: $color_darkblue;
     font: 100% $subFont;
@@ -105,5 +101,20 @@ table th {
   #book__entry__table {
     width: 80vw !important;
     margin-left: -5%;
+  }
+
+  #buttons__books {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: -7%;
+    #book__buttons {
+      background-color: $color_darkblue;
+      font: 100% $subFont;
+      a {
+        color: $color_cream !important;
+      }
+    }
   }
 }
