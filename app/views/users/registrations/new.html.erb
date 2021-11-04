@@ -1,4 +1,4 @@
-<section id="hero" class="hero d-flex align-items-center">
+<section id="hero__forms" class="hero d-flex align-items-center">
   <div class="main-form-page sign-up">
     <div class="col-lg-6 content-container">
       <%= image_tag("phinance-iso.png", :alt => "Phinance-logo", :class => "form-page-image") %>
@@ -10,6 +10,7 @@
       <h1 id="h1-reg-form">Nice choice! Sign up here</h1> </br>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       
+        <div class="form-input-container">
         <div class="form-floating">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"floatingInput" %>
           <label for="floatingInput">Email address</label>
@@ -41,9 +42,10 @@
         </div> </br>
 
         <div class="actions">
-          <%= f.submit "Sign up", class: "submit-btn" %>
+          <%= f.submit "Sign up", class: "reg-submit-btn" %>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </section>

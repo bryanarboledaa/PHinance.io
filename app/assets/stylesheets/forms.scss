@@ -22,7 +22,7 @@ form {
   color: $color_darkblue;
 }
 
-.submit-btn {
+.submit-btn, .reg-submit-btn {
   padding: 10px 10px;
 	background-color: $color_darkblue !important;
 	color: $color_mustard !important;
@@ -65,7 +65,7 @@ a {
 .main-form-page {
   display: flex;
   width: 100%;
-  margin-top: 15%;
+  margin-top: 15vh;
   #h2-content {
     font: 200% $mainFont;
   }
@@ -94,35 +94,70 @@ a {
 }
 
 @media only screen and (max-width: $mobileS), (max-width: $mobileM), (max-width: $mobileL), (max-width: $tablet) {
-  .form-row {
+  .main-form-page {
     flex-direction: column;
     width: 100%;
+    height: 80vh;
+    margin-top: -10vh;
     #h2o-mo {
       font: 100% $mainFont;
     }
-  .content-container {
-    display: none
   }
+  .content-container {
+    display: none;
   }
   .form-page-image {
     width: 250px;
   }
   .form-container {
     width: 100%;
-    justify-content: center;
-    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
   }
   #h1-form {
-    font-size: 150%;
+    font-size: 220%;
   }
   #h5-form {
-    font-size: 80%;
+    font-size: 100%;
   }
-  .form {
+  #a-form {
+    font-size: 200%;
+  }
+  .form-control {
+    width: 60vw;
+  }
+  .form-control
+  form {
     width: 100%;
+  }
+  .form-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .form input {
     width: 150%;
+  }
+  .form-lower {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  #form-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -25%;
+  }
+  .submit-btn {
+    width: 200%;
+    margin-left: -50%;
+  }
+
+  .reg-submit-btn {
+    width: 60vw;
   }
   .counts {
     display: flex;
@@ -141,3 +176,30 @@ a {
   }
 }
 
+// @media only screen and (max-width: $mobileL) {
+//   #form-checkbox {
+//     display: flex;
+//     justify-content: space-evenly;
+//   }
+// }
+
+// @media only screen and (max-width: $mobileS) {
+//   #form-checkbox {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// }
+
+// @media only screen and (min-width: 768px) {
+//   #form-checkbox {
+//     display: flex;
+//     justify-content: space-evenly;
+//   }
+// }
+
+// @media only screen and (min-width: 540px) {
+//   #form-checkbox {
+//     display: flex;
+//     justify-content: space-evenly;
+//   }
+// }
