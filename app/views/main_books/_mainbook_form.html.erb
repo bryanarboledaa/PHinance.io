@@ -8,37 +8,38 @@
     </ul>
   <% end %>
 
-<div>
-<div class="field">
-  <th><%= f.label :"Date" %></th>
-  <th><%= f.date_field :date_mainb, :required => true %></th>
+<div id = "book__entry__form">
+  <h1 id ="mainbook__entry">Create Mainbook Entry</h1>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"Entry Date" %></div>
+  <div id = "book_field_input"><%= f.date_field :date_mainb, :required => true %></div>
 </div>
 
-<div class="field">
-  <th><%= f.label :"Description"%></th>
-  <th><%= f.text_field :mainbook_description, autofocus: true, placeholder: "Description", :required => true %></th>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"Description"%></div>
+  <div id = "book_field_input"><%= f.text_field :mainbook_description, autofocus: true, placeholder: "Description", :required => true %></div>
 </div>
 
-<div class="field">
-  <th><%= f.label :"or-vat-reg-tin"%></th>
-  <th><%= f.text_field :or_vat_reg_tin_mainb, placeholder: "OR VAT-REG-TIN" %></th>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"or-vat-reg-tin"%></div>
+  <div id = "book_field_input"><%= f.text_field :or_vat_reg_tin_mainb, placeholder: "OR VAT-REG-TIN" %></div>
 </div>
 
-<div class="field">
-  <th><%= f.label :"DEBIT (+)"%></th>
-  <th><%= f.number_field :debit_mainb, placeholder: "DEBIT (+)", step: :any, value: '00.0' %></th>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"DEBIT (+)"%></div>
+  <div id = "book_field_input"><%= f.number_field :debit_mainb, placeholder: "DEBIT (+)", step: :any, value: '00.0' %></div>
 </div>
 
-<div class="field">
-  <th><%= f.label :"CREDIT (-)"%></th>
-  <th><%= f.number_field :credit_mainb, placeholder: "CREDIT (-)", step: :any, value: '00.0' %></th>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"CREDIT (-)"%></div>
+  <div id = "book_field_input"><%= f.number_field :credit_mainb, placeholder: "CREDIT (-)", step: :any, value: '00.0' %></div>
 </div>
 
- <div class="field">
-  <th><%= f.number_field :user_id, id: :main_book_user_id, value: current_user.id, readonly: true %></th>
+ <div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.number_field :user_id, id: :main_book_user_id, value: current_user.id, readonly: true, type: :hidden %></div>
 </div>
 
-<div class = "form_button">
+<div class = "form_button", id = "entry_submit_button">
   <button type="button" class="btn btn-outline-light"><%= link_to "Back", mainbook_path %></button>
   <button type="button" class="btn btn-outline-light"><%= f.submit :"Add" %></button>
 </div>

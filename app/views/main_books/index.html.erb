@@ -21,10 +21,11 @@
                 <%= link_to "Back", user_dashboard_path %>
               </button>
               <button type="button" class="btn btn-outline-light", id="book__buttons">
-                <%= link_to "Add Entry", mainbook_new_path %>
+                <%= link_to "Create Entry", mainbook_new_path %>
               </button>
+               </button>
               <button type="button" class="btn btn-outline-light", id="book__buttons">
-                <%= link_to "Export", mainbook_export_path(format: :pdf) %>
+                <%= link_to "Export to PDF", mainbook_export_path(format: :pdf) %>
               </button>
             </li>
           </ol>
