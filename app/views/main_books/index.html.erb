@@ -16,15 +16,15 @@
         </div>
       </div>
       <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">
-              <button type="button" class="btn btn-outline-light">
+            <li class="breadcrumb-item active", id="buttons__books">
+            <button type="button" class="btn btn-outline-light", id="book__buttons">
+                <%= link_to "Back", user_dashboard_path %>
+              </button>
+              <button type="button" class="btn btn-outline-light", id="book__buttons">
                 <%= link_to "Add Entry", mainbook_new_path %>
               </button>
-              <button type="button" class="btn btn-outline-light">
+              <button type="button" class="btn btn-outline-light", id="book__buttons">
                 <%= link_to "Export", mainbook_export_path(format: :pdf) %>
-              </button>
-              <button type="button" class="btn btn-outline-light">
-                <%= link_to "Back", mainbook_path %>
               </button>
             </li>
           </ol>

@@ -1,39 +1,77 @@
 <h3> PDF Generation date: <%= Time.zone.now%> </h3>
 
-<div class = "books-table-header"> MAIN BOOK ENTRIES </div>
-<div class = "books-table-container">
-  <div class="table-responsive-lg">
-    <table class="table">
-      <tr scope="column">
-      <td class = "label">User ID</td>
-      <td class = "label">Entry ID</td>
-      <td class = "label">Date</td>
-      <td class = "label">Description</td>
-      <td class = "label">or-or_vat_reg_tin</td>
-      <td class = "label">DEBIT (+)</td>
-      <td class = "label">CREDIT (-)</td>
-      <td class = "label">Balance</td>
-    </tr>
-    <% running_total = 0 %>
-    <% @main_books.each do |mainbook| %>
-    <% if mainbook.user == current_user %>
-    <tr scope="column">
-      <td><%= mainbook.user_id%></td>  
-      <td><%= mainbook.id %></td>
-      <td><%= mainbook.date_mainb.strftime('%B %d, %Y') %></td>
-      <td><%= mainbook.mainbook_description %></td>
-      <td><%= mainbook.or_vat_reg_tin_mainb %></td>
-      <td><%= number_to_currency(mainbook.debit_mainb, unit: ' PHP ') %></td>
-      <td><%= number_to_currency(mainbook.credit_mainb, unit: ' PHP ') %></td>
-      <td><%= number_to_currency(calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb), unit: ' PHP ') %></td>
-      <td><% running_total = calculate_total_balance(running_total, calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb)) %></td>
-    </tr>
-    <% end %>
-    <% end %>
-    </table>
-  </div>
-</div>
+<%= current_user.present? ? "" : "" %>
+<h4 id = "user_welcome">Name: <%= current_user.full_name %></h4>
 
-<div>
-<h2> TOTAL BALANCE: <%= number_to_currency(running_total, unit: ' PHP ') %></h2>
+<div class="container-fluid px-6">
+  <div class="row">
+  <% running_total=0 %> <% running_total_credit=0 %> <%
+      running_total_debit=0 %> <% @main_books.each do |mainbook| %> <% if
+      mainbook.user==current_user %> <%
+      running_total=calculate_total_balance(running_total,
+      calculate_balance(mainbook.debit_mainb, mainbook.credit_mainb)) %> <%
+      running_total_debit=calculate_total_debit(running_total_debit,
+      mainbook.debit_mainb) %> <%
+      running_total_credit=calculate_total_credit(running_total_credit,
+      mainbook.credit_mainb) %> <% end %> <% end %>
+    <div>
+      <div class="card" id= "card_mainbook_header">
+        <div class="card-body" , id="mainbook__header">MAINBOOK ENTRIES</div>
+        <div
+          class="card-footer d-flex align-items-center justify-content-between"
+        >
+          <h5><%= "Total balance: "%><%= number_to_currency(running_total, unit: '₱ ') %></h5>
+          <h5><%= "Total Debit (+): "%><%= number_to_currency(running_total_debit, unit: ' PHP ' ) %></h5>
+          <h5><%= "Total Credit(-): "%><%= number_to_currency(running_total_credit, unit: ' PHP ' ) %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<section class="p-3 my-container">
+  <div class="books-table-container">
+    <div class="container">
+      <div class="card-body", id = "book__entry__table">
+        <div class="table-responsive">
+          <table class="table table-borderless text-white mb-0">
+            <thead>
+              <tr>
+                <td class="label_book_header">Entry ID</td>
+                <td class="label_book_header">Date</td>
+                <td class="label_book_header">Description</td>
+                <td class="label_book_header">or-or_vat_reg_tin</td>
+                <td class="label_book_header">DEBIT (+)</td>
+                <td class="label_book_header">CREDIT (-)</td>
+                <td class="label_book_header">Balance</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% running_total = 0 %> <% @main_books.each do |mainbook| %> <% if
+              mainbook.user == current_user %>
+              <tr scope="column">
+                <td class="label_book_content"><%= mainbook.id %></td>
+                <td class="label_book_content"><%= mainbook.date_mainb.strftime('%B %d, %Y') %></td>
+                <td class="label_book_content"><%= mainbook.mainbook_description %></td>
+                <td class="label_book_content"><%= mainbook.or_vat_reg_tin_mainb %></td>
+                <td class="label_book_content">
+                  <%= number_to_currency(mainbook.debit_mainb, unit: ' PHP ') %>
+                </td>
+                <td class="label_book_content">
+                  <%= number_to_currency(mainbook.credit_mainb, unit: ' PHP ')
+                  %>
+                </td>
+                <td class="label_book_content">
+                  <%= number_to_currency(calculate_balance(mainbook.debit_mainb,
+                  mainbook.credit_mainb), unit: ' PHP ') %>
+                </td>
+              </tr>
+              <% end %> <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div>

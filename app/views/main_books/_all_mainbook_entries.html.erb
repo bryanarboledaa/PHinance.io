@@ -35,11 +35,9 @@
                   <%= number_to_currency(calculate_balance(mainbook.debit_mainb,
                   mainbook.credit_mainb), unit: ' PHP ') %>
                 </td>
-                <td>
                   <% running_total = calculate_total_balance(running_total,
                   calculate_balance(mainbook.debit_mainb,
                   mainbook.credit_mainb)) %>
-                </td>
                 <td>
                   <button type="button" class="btn btn-outline-light", id="table__inside__buttons">
                     <%= link_to "Edit", edit_mainbook_path(mainbook.id) %>
