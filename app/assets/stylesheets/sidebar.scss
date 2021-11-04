@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-$color_darkblue: #222C3C;
-$color_mustard: #D8B26E;
-$color_brown: #B69B7D;
-$color_cream: #E2E0D5;
-$color_offwhite: #EDF2F4;
-$mainFont: 'Roboto Condensed', sans-serif;
-$subFont: 'Roboto', sans-serif;;
+$color_darkblue: #222c3c;
+$color_mustard: #d8b26e;
+$color_brown: #b69b7d;
+$color_cream: #e2e0d5;
+$color_offwhite: #edf2f4;
+$mainFont: "Roboto Condensed", sans-serif;
+$subFont: "Roboto", sans-serif;
 
 $mobileS: 320px;
 $mobileM: 375px;
@@ -16,28 +16,29 @@ $tablet: 770px;
 $laptop: 1024px;
 
 .navbar {
-	width: 230px;
-	height: 100vh;
-	position: fixed;
-	margin-left: -300px;
-	background-color: $color_darkblue;
-	transition: 0.4s;
+  width: 230px;
+  height: 100vh;
+  position: fixed;
+  margin-left: -300px;
+  background-color: $color_darkblue;
+  transition: 0.4s;
 }
 
-.navbar{
-background-color: $color_darkblue !important;
+.navbar {
+  background-color: $color_darkblue !important;
   a {
-	color: $color_mustard !important;
-	font: 80% $mainFont !important;
-	cursor: pointer;
-	text-decoration: none;
-    }
+    color: $color_mustard !important;
+    font: 80% $mainFont !important;
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
-.navbar-nav, .nav-link {
+.navbar-nav,
+.nav-link {
   a {
-  margin-left: 10%;
-  font: 130% $mainFont !important;
+    margin-left: 10%;
+    font: 130% $mainFont !important;
   }
 }
 
@@ -63,13 +64,16 @@ background-color: $color_darkblue !important;
 
 // Sidebar toggler
 #menu-btn {
-	padding: 10px 10px;
-	background-color: $color_darkblue !important;
-	color: $color_mustard !important;
-	font: 120% $mainFont;
+  background-color: $color_darkblue !important;
+  color: $color_mustard !important;
+  font: 120% $mainFont;
 }
 
 #menu-btn:focus {
   box-shadow: 0 0 0 0.25rem #7952b344;
 }
 
+.my-4 {
+  margin-top: -0.5rem !important;
+  margin-bottom: 0rem !important;
+}

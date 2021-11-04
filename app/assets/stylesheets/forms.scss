@@ -1,17 +1,16 @@
-$color_darkblue: #222C3C;
-$color_mustard: #D8B26E;
-$color_brown: #B69B7D;
-$color_cream: #E2E0D5;
-$color_offwhite: #EDF2F4;
-$mainFont: 'Roboto Condensed', sans-serif;
-$subFont: 'Roboto', sans-serif;;
+$color_darkblue: #222c3c;
+$color_mustard: #d8b26e;
+$color_brown: #b69b7d;
+$color_cream: #e2e0d5;
+$color_offwhite: #edf2f4;
+$mainFont: "Roboto Condensed", sans-serif;
+$subFont: "Roboto", sans-serif;
 
 $mobileS: 320px;
 $mobileM: 375px;
 $mobileL: 430px;
 $tablet: 770px;
 $laptop: 1024px;
-
 
 form {
   width: 30vw !important;
@@ -24,9 +23,9 @@ form {
 
 .submit-btn, .reg-submit-btn {
   padding: 10px 10px;
-	background-color: $color_darkblue !important;
-	color: $color_mustard !important;
-	font: 120% $mainFont;
+  background-color: $color_darkblue !important;
+  color: $color_mustard !important;
+  font: 120% $mainFont;
   border-radius: 8px;
 }
 
@@ -93,6 +92,7 @@ a {
   font-size: 150%;
 }
 
+
 @media only screen and (max-width: $mobileS), (max-width: $mobileM), (max-width: $mobileL), (max-width: $tablet) {
   .main-form-page {
     flex-direction: column;
@@ -102,9 +102,11 @@ a {
     #h2o-mo {
       font: 100% $mainFont;
     }
+
   }
   .content-container {
     display: none;
+
   }
   .form-page-image {
     width: 250px;
@@ -163,7 +165,8 @@ a {
     display: flex;
     flex-direction: column;
   }
-  .status-counts, .main-mini-books {
+  .status-counts,
+  .main-mini-books {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,30 +179,3 @@ a {
   }
 }
 
-// @media only screen and (max-width: $mobileL) {
-//   #form-checkbox {
-//     display: flex;
-//     justify-content: space-evenly;
-//   }
-// }
-
-// @media only screen and (max-width: $mobileS) {
-//   #form-checkbox {
-//     display: flex;
-//     justify-content: space-between;
-//   }
-// }
-
-// @media only screen and (min-width: 768px) {
-//   #form-checkbox {
-//     display: flex;
-//     justify-content: space-evenly;
-//   }
-// }
-
-// @media only screen and (min-width: 540px) {
-//   #form-checkbox {
-//     display: flex;
-//     justify-content: space-evenly;
-//   }
-// }

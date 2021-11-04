@@ -8,6 +8,7 @@ FactoryBot.define do
     sequence(:username) { |un| "abctech_#{un}" }
     sequence(:company) { |comp| "ABC Tech Corporation #{comp}" }
     confirmed_at { Time.zone.today }
+    status { 'paid' }
   end
 
   factory :admin do

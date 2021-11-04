@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+$color_darkblue: #222c3c;
+$color_mustard: #d8b26e;
+$color_brown: #b69b7d;
+$color_cream: #e2e0d5;
+$color_offwhite: #edf2f4;
+$mainFont: "Roboto Condensed", sans-serif;
+$subFont: "Roboto", sans-serif;
+
+$mobileS: 320px;
+$mobileM: 375px;
+$mobileL: 430px;
+$tablet: 770px;
+$laptop: 1024px;
+
+#user__cards_container {
+  margin: 0 auto !important;
+}
+
+#user__dashboard {
+  font: 200% $mainFont;
+  margin-top: -2%;
+  color: $color_darkblue;
+  text-shadow: 2px 2px 10px $color_brown;
+}
+
+#user_welcome {
+  font: 120% $subFont;
+  color: $color_darkblue;
+  text-shadow: 2px 2px 10px $color_offwhite;
+}
+
+#user_subscription__status {
+  font: 120% $subFont;
+  color: $color_brown;
+  text-shadow: 2px 2px 10px $color_offwhite;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  border: none;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+    0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+    0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+    0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+}
+.l-bg-gold {
+  background: linear-gradient(
+    108deg,
+    rgba(216, 178, 110, 1) 35%,
+    rgba(182, 155, 125, 1) 78%
+  ) !important;
+  color: #fff;
+}
+
+.l-bg-blue-dark {
+  background: linear-gradient(to right, #373b44, #4286f4) !important;
+  color: #fff;
+}
+
+.l-bg-orange-dark {
+  background: linear-gradient(to right, #a86008, #ffba56) !important;
+  color: #fff;
+}
+
+.card .card-statistic-3 .card-icon-large .fas,
+.card .card-statistic-3 .card-icon-large .far,
+.card .card-statistic-3 .card-icon-large .fab,
+.card .card-statistic-3 .card-icon-large .fal {
+  font-size: 110px;
+}
+
+.card .card-statistic-3 .card-icon {
+  text-align: center;
+  line-height: 50px;
+  margin-left: 15px;
+  color: #000;
+  position: absolute;
+  right: -5px;
+  top: 20px;
+  opacity: 0.1;
+}
+
+hr {
+  height: 4px;
+  margin-left: 15px;
+  margin-bottom: -3px;
+}
+.hr-primary {
+  background-image: -webkit-linear-gradient(
+    left,
+    rgba(66, 133, 244, 0.8),
+    rgba(66, 133, 244, 0.6),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.breadcrumb {
+  background: rgba(245, 245, 245, 0);
+  border: 0px solid rgba(245, 245, 245, 1);
+  border-radius: 25px;
+  display: block;
+}
+
+.btn-bread {
+  margin-top: 10px;
+  font-size: 12px;
+
+  border-radius: 3px;
+}
+
+#mainbook_entries_date__chart_cont {
+  font: 100% $mainFont;
+  color: $color_darkblue;
+  margin: 0 auto;
+}
+
+#mainbook_date__chart {
+  width: 30vw !important;
+  height: auto;
+}
+
+#charts__container {
+  margin: 0 auto !important;
+}
+
+@media only screen and (max-width: $mobileS),
+  (max-width: $mobileM),
+  (max-width: $mobileL) {
+  #user__dashboard {
+    font: 180% $mainFont;
+    margin-top: -5vh;
+  }
+
+  #user_subscription__status {
+    font: 100% $subFont;
+    color: $color_brown;
+    text-shadow: 2px 2px 10px $color_offwhite;
+  }
+
+  #mainbook_date__chart {
+    width: 80vw !important;
+    height: 20vh !important;
+  }
+}
