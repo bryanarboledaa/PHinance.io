@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+$color_darkblue: #222c3c;
+$color_mustard: #d8b26e;
+$color_brown: #b69b7d;
+$color_cream: #e2e0d5;
+$color_offwhite: #edf2f4;
+$mainFont: "Roboto Condensed", sans-serif;
+$subFont: "Roboto", sans-serif;
+
+$mobileS: 320px;
+$mobileM: 375px;
+$mobileL: 430px;
+$tablet: 770px;
+$laptop: 1024px;
+
+//========MAINBOOK DASHBOARD========//
+
+#card_mainbook_header {
+  height: 10vh;
+}
+
+.card {
+  background-color: $color_offwhite !important;
+  height: 20vh;
+  border-color: $color_darkblue !important;
+}
+
+.card-body {
+  background-color: $color_darkblue !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font: 100% $subFont;
+  color: $color_mustard;
+}
+
+.card-footer {
+  height: 20vh;
+  background-color: $color_offwhite !important;
+  border-radius: 10px !important;
+}
+
+#mainbook__header {
+  font: 150% $mainFont;
+  margin-top: -3vh !important;
+}
+
+#mainbook__table_header {
+  margin-top: 1vh;
+}
+
+.intro {
+  height: 100%;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#book__entry__table {
+  background-color: black;
+  width: 85vw !important;
+  margin-left: -15%;
+
+  .label_book_header {
+    font: 120% $mainFont;
+    color: $color_mustard !important;
+  }
+
+  .label_book_content {
+    font: 90% $subFont;
+    color: $color_offwhite !important;
+  }
+
+  #table__inside__buttons {
+    background-color: $color_cream;
+    a {
+      color: $color_darkblue !important;
+    }
+  }
+}
+
+#buttons__books {
+  margin-left: 5%;
+  #book__buttons {
+    background-color: $color_darkblue;
+    font: 100% $subFont;
+    a {
+      color: $color_cream !important;
+    }
+  }
+}
+
+//=============MEDIA QUERY=================//
+
+@media only screen and (max-width: $tablet), (max-width: $laptop) {
+  #book__entry__table {
+    width: 80vw !important;
+    margin-left: -5%;
+  }
+
+  #buttons__books {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: -7%;
+    #book__buttons {
+      background-color: $color_darkblue;
+      font: 100% $subFont;
+      a {
+        color: $color_cream !important;
+      }
+    }
+  }
+}
