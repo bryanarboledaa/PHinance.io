@@ -18,7 +18,7 @@ $laptop: 1024px;
 //========MAINBOOK DASHBOARD========//
 
 #card_mainbook_header {
-  height: 5vh;
+  height: 10vh;
 }
 
 .card {
@@ -63,8 +63,8 @@ table th {
 
 #book__entry__table {
   background-color: black;
-  width: 80vw !important;
-  margin-left: -10%;
+  width: 85vw !important;
+  margin-left: -15%;
 
   .label_book_header {
     font: 120% $mainFont;
@@ -78,7 +78,24 @@ table th {
 
   #table__inside__buttons {
     background-color: $color_cream;
-    margin-left: -5vw;
+    a {
+      color: $color_darkblue !important;
+    }
+  }
+}
+
+#buttons__books {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: -7%;
+  #book__buttons {
+    background-color: $color_darkblue;
+    font: 100% $subFont;
+    a {
+      color: $color_cream !important;
+    }
   }
 }
 
@@ -87,6 +104,6 @@ table th {
 @media only screen and (max-width: $tablet), (max-width: $laptop) {
   #book__entry__table {
     width: 80vw !important;
-    margin-left: -3%;
+    margin-left: -5%;
   }
 }
