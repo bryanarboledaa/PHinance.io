@@ -25,15 +25,15 @@
                 <td class="label_book_content"><%= mainbook.mainbook_description %></td>
                 <td class="label_book_content"><%= mainbook.or_vat_reg_tin_mainb %></td>
                 <td class="label_book_content">
-                  <%= number_to_currency(mainbook.debit_mainb, unit: ' PHP ') %>
+                  <%= number_to_currency(mainbook.debit_mainb, unit: ' ₱ ') %>
                 </td>
                 <td class="label_book_content">
-                  <%= number_to_currency(mainbook.credit_mainb, unit: ' PHP ')
+                  <%= number_to_currency(mainbook.credit_mainb, unit: ' ₱ ')
                   %>
                 </td>
                 <td class="label_book_content">
                   <%= number_to_currency(calculate_balance(mainbook.debit_mainb,
-                  mainbook.credit_mainb), unit: ' PHP ') %>
+                  mainbook.credit_mainb), unit: ' ₱ ') %>
                 </td>
                   <% running_total = calculate_total_balance(running_total,
                   calculate_balance(mainbook.debit_mainb,

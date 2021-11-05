@@ -1,24 +1,25 @@
+<h1 class="h1 text-center" id="pricing__header">CHOOSE YOUR PLAN!</h1>
+
 <div class="pricing__product__container">
   <% @pricing = api_stripe_price_fetch() %> <% @pricing.each do |price| %>
-  <div class="container" style="margin-top: 50px">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="card-sl">
-          <div class="card-image">
-            <img
-              src="https://www.thebalance.com/thmb/TQM3ruyQPyOc4IWKHyyr_3T2X2w=/2121x1414/filters:fill(auto,1)/GettyImages-1160738322-3e50c7227c51497ba06cf1a34f91aaa0.jpg"
-            />
+  <div class="container-fluid" style="margin-top: 50px">
+    <div id="subscriptions__contaier">
+      <div class="row">
+        <div class="col-sm-4 col-md-3">
+          <div class="card-sl" , id="subs__card">
+            <div class="card-image">
+              <img
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flearn.g2.com%2Fhs-fs%2Fhubfs%2Fsubscription-business-model.jpg%3Fwidth%3D2121%26name%3Dsubscription-business-model.jpg&f=1&nofb=1"
+              />
+            </div>
+            <h4 class="card-action" , id="plan__month__year"
+              ><%= price.recurring.interval %></h4
+            >
+            <div class="card-heading", id = "card__heading__text"><%= price.product.name %></div>
+            <div class="card-text">Minibooks</div>
+            <div class="card-text"><h3><%= "₱ " %><%= " "%><%= price.unit_amount/100 %></h3></div>
+            <h3 id ="checkout__text"><%= link_to "Checkout", checkout_create_path(price: price.id), method: :post, remote: true%></h3>
           </div>
-          <a class="card-action"
-            ><i class="fa fa-heart"></i><%= price.recurring.interval %></a
-          >
-          <div class="card-heading"><%= price.product.name %></div>
-          <div class="card-text">Minibooks</div>
-          <div class="card-text">
-            <%= price.currency %><%= " "%><%= price.unit_amount/100 %>
-          </div>
-          <%= link_to "Checkout", checkout_create_path(price: price.id), method:
-          :post, remote: true%>
         </div>
       </div>
     </div>

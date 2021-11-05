@@ -4,11 +4,7 @@
     <article class="postcard dark blue">
       <% @abc_products.each do |product| %>
       <a class="postcard__img_link" href="#">
-        <img
-          class="postcard__img"
-          src="https://www.thebalance.com/thmb/TQM3ruyQPyOc4IWKHyyr_3T2X2w=/2121x1414/filters:fill(auto,1)/GettyImages-1160738322-3e50c7227c51497ba06cf1a34f91aaa0.jpg"
-          alt="Image Title"
-        />
+        <img class="postcard__img" src="https://www.thebalance.com/thmb/TQM3ruyQPyOc4IWKHyyr_3T2X2w=/2121x1414/filters:fill(auto,1)/GettyImages-1160738322-3e50c7227c51497ba06cf1a34f91aaa0.jpg" alt="Image Title"/>
       </a>
       <div class="postcard__text">
         <h1 class="postcard__title blue"><a><%= product.product_name %></a></h1>
@@ -16,29 +12,66 @@
         <div class="postcard__bar"></div>
         <div class="postcard__preview-txt">
           You can create unlimited minibooks all you want! Experience recording your financials easily with PHinance.io app!
+          Minibook entries would help you in categorizing revenue and expenses by separating product transaction (variety of products’ revenue and expense) to separating personal money and business money!
         </div>
         <ul class="postcard__tagbox">
-          <li class="tag__item"><i class="fas fa-tag mr-2"></i>Monthly</li>
-          <li class="tag__item"><i class="fas fa-tag mr-2"></i>Yearly</li>
+          <li class="tag__item">Monthly</li>
+          <li class="tag__item">Yearly</li>
         </ul>
         <h1 id="subscribeNow__card">
-          <% if current_user.status == 'free' %> <%= link_to "SUBSCRIBE NOW!",
-          pricing_path %> <% else %> <%= link_to "SUBSCRIBE NOW!",
-          user_dashboard_path %> <% end %>
+          <% if current_user.status == 'free' %> 
+          <%= link_to "SUBSCRIBE NOW!", pricing_path %> 
+          <% else %> 
+          <%= link_to "SUBSCRIBED", user_dashboard_path %> <% end %>
         </h1>
       </div>
     </article>
   </div>
-  <button type="button" class="btn btn-secondary">
-    <%= link_to 'View Details', abc_product_show_path(product.id) %>
-  </button>
-  <button type="button" class="btn btn-secondary">
-    <% if current_user.status == 'free' %> <%= link_to "SUBSCRIBE NOW!",
-    pricing_path %> <% else %> <%= link_to "SUBSCRIBE NOW!", user_dashboard_path
-    %> <% end %>
-  </button>
-  <button type="button" class="btn btn-outline-light">
-    <%= link_to "Back", root_path %>
-  </button>
   <% end %>
+
+  <div class="container py-0" , class="product__container">
+    <article class="postcard dark blue">
+      <a class="postcard__img_link" href="#">
+        <img class="postcard__img" src="https://images.unsplash.com/photo-1546198632-9ef6368bef12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Image Title"/>
+      </a>
+      <div class="postcard__text">
+        <h1 class="postcard__title blue"><a>Inventories</a></h1>
+        <div class="postcard__subtitle small"></div>
+        <div class="postcard__bar"></div>
+        <div class="postcard__preview-txt">
+          You can create unlimited inventory records for your business all you want! Experience recording your inventories easily with PHinance.io app!
+        </div>
+        <ul class="postcard__tagbox">
+          <li class="tag__item">Monthly</li>
+          <li class="tag__item">Yearly</li>
+        </ul>
+        <h1 id="subscribeNow__card">
+          <%= link_to "COMING SOON!", products_path %> 
+        </h1>
+      </div>
+    </article>
+  </div>
+
+  <div class="container py-0" , class="product__container">
+    <article class="postcard dark blue">
+      <a class="postcard__img_link" href="#">
+        <img class="postcard__img" src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80" alt="Image Title"/>
+      </a>
+      <div class="postcard__text">
+        <h1 class="postcard__title blue"><a>Banking Transactions</a></h1>
+        <div class="postcard__subtitle small"></div>
+        <div class="postcard__bar"></div>
+        <div class="postcard__preview-txt">
+          You can now do banking transaction! Experience transacting to different banks easily with PHinance.io app!
+        </div>
+        <ul class="postcard__tagbox">
+          <li class="tag__item">Monthly</li>
+          <li class="tag__item">Yearly</li>
+        </ul>
+        <h1 id="subscribeNow__card">
+          <%= link_to "COMING SOON!", products_path %> 
+        </h1>
+      </div>
+    </article>
+  </div>
 </section>

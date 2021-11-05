@@ -62,9 +62,10 @@ table th {
 }
 
 #book__entry__table {
+  margin: 0 auto;
   background-color: black;
   width: 85vw !important;
-  margin-left: -23%;
+  margin-left: -15%;
 
   .label_book_header {
     font: 120% $mainFont;
