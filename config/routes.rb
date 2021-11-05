@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'admins/home' => 'admin_pages#index'
   get 'admins/all_users' => 'admin_pages#all_users'
   get 'admins/paid_users' => 'admin_pages#paid_users'
+  get 'admins/free_users' => 'admin_pages#free_users'
 
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions" }, only: [:sessions]
 
