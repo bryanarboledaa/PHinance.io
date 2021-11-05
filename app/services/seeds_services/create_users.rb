@@ -6,13 +6,13 @@ module SeedsServices
       Faker::Name.unique.clear
       @logger.info 'Deleted all data from User model'
       user_count = 0
-      5.times do
-        user = User.create(email: "dummy_user+#{user_count}@abc.com", password: "abc12345#{user_count}", full_name: Faker::Name.unique.name, username: "abctech_#{user_count}", company: Faker::Company)
+      15.times do
+        user = User.create(email: Faker::Internet.email.to_s, password: 'abc12345', full_name: Faker::Name.unique.name, username: "abctech_#{user_count}", company: Faker::Company.name, status: [0, 1].sample)
         user_count += 1
         user.skip_confirmation!
         user.save!
       end
-      @logger.info '10 user data created'
+      @logger.info '15 user data created'
     end
   end
 end
