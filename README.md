@@ -9,9 +9,13 @@ A Ruby on Rails accounting app for small businesses that allow users to track th
 
 #### Sample Credentials
 
-User:
+Free User:
 - email: pickystocker@gmail.com
 - pw: pickystocker
+
+Paid User:
+- email: mumbledev.07@gmail.com
+- pw: abc12345
 
 Admin:
 - email: abc.dev@tech.com
