@@ -15,6 +15,6 @@ pw: pickystocker
 
 Admin:
 email: abc.dev@tech.com
-password:
+password: test1234
 
 #### Installation
