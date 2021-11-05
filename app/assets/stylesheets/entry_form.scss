@@ -55,11 +55,20 @@ $laptop: 1024px;
   color: $color_darkblue;
 }
 
-#entry_submit_button {
-  display: flex;
+#entry_submit_button_cont {
+  margin-top: 5%;
+  margin-left: 32%;
+  margin-right: 5%;
+  width: 70vw;
+  display: flex !important;
   flex-direction: row;
-  justify-content: center;
-  margin: 0 auto;
+  justify-content: space-evenly;
+
+  #entry_submit_button {
+    font: 120% $mainFont;
+    color: $color_brown !important;
+    background-color: $color_darkblue;
+  }
 }
 
 //=============MEDIA QUERY=================//
@@ -75,6 +84,8 @@ $laptop: 1024px;
     #mainbook__entry {
       font: 200% $mainFont;
       margin: 0 auto;
+      margin-top: -5%;
+      margin-bottom: 2%;
     }
   }
 
@@ -100,10 +111,21 @@ $laptop: 1024px;
     color: $color_darkblue;
   }
 
-  #entry_submit_button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  #entry_submit_button_cont {
+    width: 70vw;
+    display: flex !important;
     margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    align-content: stretch;
+    justify-content: space-evenly;
+
+    #entry_submit_button {
+      margin-top: 10%;
+      margin-left: 20%;
+      font: 120% $mainFont;
+      color: $color_brown !important;
+      background-color: $color_darkblue;
+    }
   }
 }

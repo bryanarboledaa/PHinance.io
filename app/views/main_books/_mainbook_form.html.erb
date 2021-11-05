@@ -38,10 +38,9 @@
  <div class="field", id = "book_entry_field">
   <div id = "book_field_label"><%= f.number_field :user_id, id: :main_book_user_id, value: current_user.id, readonly: true, type: :hidden %></div>
 </div>
-
-<div class = "form_button", id = "entry_submit_button">
-  <button type="button" class="btn btn-outline-light"><%= link_to "Back", mainbook_path %></button>
-  <button type="button" class="btn btn-outline-light"><%= f.submit :"Add" %></button>
+</div>
+<div id = "entry_submit_button_cont">
+  <button class="btn", id= "entry_submit_button"><%= link_to "Back", mainbook_path%></button>
+  <%= f.submit :"Add Entry", class: 'btn', id: "entry_submit_button" %>
 </div>
 <% end %>
-</div>

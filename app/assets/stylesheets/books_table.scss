@@ -15,15 +15,125 @@ $mobileL: 430px;
 $tablet: 770px;
 $laptop: 1024px;
 
-//========MAINBOOK TABLE========//
-
-.books-table-header {
-  font: 160% $mainFont;
-  color: $color_darkblue;
-  text-shadow: 2px 2px 10px $color_mustard;
-  margin-top: -5vh;
-  margin-bottom: 2vh;
+#card_mainbook_header__minibook {
+  height: 7vh;
 }
-.books-table-container {
-  height: 55vh;
+
+#mainbook__header {
+  font: 150% $mainFont;
+  margin-top: -3vh !important;
+}
+
+#mainbook__table_header {
+  margin-top: 1vh;
+}
+
+#minibook__entry__table {
+  margin: 0 auto;
+  background-color: black;
+  width: 30vw !important;
+  margin-left: -20%;
+
+  .label_book_header {
+    font: 120% $mainFont;
+    color: $color_mustard !important;
+  }
+
+  .label_book_content_minib {
+    font: 120% $subFont;
+    color: $color_offwhite !important;
+    text-overflow: ellipsis;
+  }
+
+  #table__inside__buttons {
+    background-color: $color_cream;
+    a {
+      color: $color_darkblue !important;
+    }
+  }
+}
+
+#book__entry__table_mainbook_entries {
+  margin: 0 auto;
+  background-color: black;
+  width: 85vw !important;
+  margin-left: -18%;
+
+  .label_book_header {
+    font: 120% $mainFont;
+    color: $color_mustard !important;
+  }
+
+  .label_book_content_minib {
+    font: 120% $subFont;
+    color: $color_offwhite !important;
+    text-overflow: ellipsis;
+  }
+
+  #table__inside__buttons {
+    background-color: $color_cream;
+    a {
+      color: $color_darkblue !important;
+    }
+  }
+}
+
+#buttons__minibooks {
+  margin-left: 5%;
+  #book__buttons_minib {
+    background-color: $color_darkblue;
+    font: 100% $subFont;
+    a {
+      color: $color_cream !important;
+    }
+  }
+}
+
+//=============MEDIA QUERY=================//
+
+@media only screen and (max-width: $tablet), (max-width: $laptop) {
+  #minibook__entry__table {
+    width: 80vw !important;
+    margin-left: -5%;
+  }
+
+  #buttons__minibooks {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: -7%;
+    #book__buttons_minib {
+      background-color: $color_darkblue;
+      font: 100% $subFont;
+      a {
+        color: $color_cream !important;
+      }
+    }
+  }
+
+  #book__entry__table_mainbook_entries {
+    background-color: black;
+    width: 95vw !important;
+    margin-left: -12%;
+
+    .label_book_header {
+      font: 110% $mainFont;
+      color: $color_mustard !important;
+    }
+
+    .label_book_content {
+      font: 90% $subFont;
+      color: $color_offwhite !important;
+      text-overflow: ellipsis;
+    }
+
+    #table__inside__buttons {
+      background-color: $color_cream;
+      a {
+        font: 85% $subFont;
+        color: $color_darkblue !important;
+      }
+    }
+  }
 }

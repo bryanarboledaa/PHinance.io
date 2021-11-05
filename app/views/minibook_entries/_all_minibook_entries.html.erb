@@ -1,44 +1,45 @@
-<div class = "books-table-header"> ALL MINIBOOK Entries</div>
-<div class = "books-table-container">
-  <div class="table-responsive-lg">
-  <table class = "table">
-  <tr scope="column">
-    <td class = "label">Entry ID</td>
-    <td class = "label">Minibook_ID</td>
-    <td class = "label">Entry Date</td>
-    <td class = "label">Description</td>
-    <td class = "label">or-or_vat_reg_tin</td>
-    <td class = "label">DEBIT (+)</td>
-    <td class = "label">CREDIT (-)</td>
-    <td class = "label">Balance</td>
-    <td class = "label">Action</td>
-  </tr>
-  <% running_total = 0 %>
-  <% @minibook_entries.each do |minibook_entry| %>
-  <% if minibook_entry.user == current_user %>
-  <tr scope="column">  
-    <td><%= minibook_entry.id %></td>
-    <td><%= minibook_entry.mini_book_id %></td>
-    <td><%= minibook_entry.date_minib_entry.strftime('%B %d, %Y') %></td>
-    <td><%= minibook_entry.minibook_entry_description %></td>
-    <td><%= minibook_entry.or_vat_reg_tin_minib %></td>
-    <td><%= number_to_currency(minibook_entry.debit_minib, unit: ' PHP ') %></td>
-    <td><%= number_to_currency(minibook_entry.credit_minib, unit: ' PHP ') %></td>
-    <td><%= number_to_currency(calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib), unit: ' PHP ') %></td>
-    <td><% running_total = calculate_total_balance(running_total, calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)) %></td>
-    <div>
-    <td>
-      <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id) %></button>
-      <button type="button" class="btn btn-danger"><%= link_to "Delete", mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id), method: :delete, :data => { :confirm => "Are you sure?" } %></button>
-    </td>
-    </div>  
-  </tr>
-  <% end %>
-  <% end %>
-  </table>
+<section class="p-3 my-container">
+  <div class="books-table-container">
+    <div class="container">
+      <div class="card-body", id = "book__entry__table_mainbook_entries">
+        <div class="table-responsive">
+          <table class="table table-borderless text-white mb-0">
+            <thead>
+              <tr>
+                <td class="label_book_header">Entry ID</td>
+                <td class="label_book_header">Entry Date</td>
+                <td class="label_book_header">Description</td>
+                <td class="label_book_header">or-or_vat_reg_tin</td>
+                <td class="label_book_header">DEBIT (+)</td>
+                <td class="label_book_header">CREDIT (-)</td>
+                <td class="label_book_header">Balance</td>
+                <td class="label_book_header">Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% running_total = 0 %> 
+              <% @minibook_entries.each do |minibook_entry| %>
+              <% if minibook_entry.user == current_user %>
+              <tr scope="column">
+                <td><%= minibook_entry.id %></td>
+                <td><%= minibook_entry.date_minib_entry.strftime('%B %d, %Y') %></td>
+                <td><%= minibook_entry.minibook_entry_description %></td>
+                <td><%= minibook_entry.or_vat_reg_tin_minib %></td>
+                <td><%= number_to_currency(minibook_entry.debit_minib, unit: ' ₱ ') %></td>
+                <td><%= number_to_currency(minibook_entry.credit_minib, unit: ' ₱ ') %></td>
+                <td><%= number_to_currency(calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib), unit: ' ₱ ') %></td>
+                <% running_total = calculate_total_balance(running_total, calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)) %>
+                <td>
+                  <button type="button" class="btn btn-outline-light", id="table__inside__buttons"><%= link_to "Edit", edit_mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id) %></button>
+                  <button type="button" class="btn btn-outline-light", id="table__inside__buttons"><%= link_to "Delete", mini_book_minibook_entry_path(minibook_entry.mini_book_id, minibook_entry.id), method: :delete, :data => { :confirm => "Are you sure?" } %></button>
+                </td>
+              </tr>
+              <% end %> 
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<%= number_to_currency(running_total, unit: ' PHP ') %>
-<button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_book_minibook_entries_path %></button>
-<button type="button" class="btn btn-outline-light"><%= link_to "Add Entry", new_mini_book_minibook_entry_path(@mini_book_id) %></button>
-<button type="button" class="btn btn-outline-light"><%= link_to "Export", minibook_entries_export_path(@mini_book_id, format: :pdf) %></button>
+</section>
