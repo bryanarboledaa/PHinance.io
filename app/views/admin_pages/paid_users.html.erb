@@ -1,7 +1,30 @@
-<h1> Paid Users </h1>
+<section class="p-3 my-container">
+  <div class="books-table-container">
+    <div class="container">
+    <div class="card-body", id = "book__entry__table">
+      <h2> Paid Users </h2>
+      <div class="table-responsive">
+        <table class="table table-borderless text-white mb-0">
+          <thead>
+            <tr>
+              <td class="label_book_header">Full Name</td>
+              <td class="label_book_header">Email</td>
+              <td class="label_book_header">Company</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="column">
+              <% @users.each do |user| %>
+                <td class="label_book_content"><%= user.full_name %></td>
+                <td class="label_book_content"><%= user.email %></td>
+                <td class="label_book_content"><%= user.company %></td>
+            </tr>    
+              <% end %>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<% @users.each do |user| %>
-  <%= user.full_name %> </br>
-  <%= user.company %> </br>
-  <%= user.status %> </br>
-<% end %>

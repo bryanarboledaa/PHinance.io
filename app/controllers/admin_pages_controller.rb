@@ -17,4 +17,8 @@ class AdminPagesController < ApplicationController
   def paid_users
     @users = User.where(status: 1)
   end
+
+  def free_users
+    @users = User.where(status: 0)
+  end
 end
