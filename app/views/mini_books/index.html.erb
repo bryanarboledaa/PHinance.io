@@ -1,1 +1,28 @@
+<div class="container-fluid px-6">
+  <div class="row">
+    <div>
+      <div class="card" id= "card_mainbook_header__minibook">
+        <div class="card-body" , id="mainbook__header">MINIBOOKS</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+        </div>
+      </div>
+      <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active", id="buttons__minibooks">
+            <button type="button" class="btn btn-outline-light", id="book__buttons_minib">
+                <%= link_to "Back", user_dashboard_path %>
+              </button>
+              <button type="button" class="btn btn-outline-light", id="book__buttons_minib">
+                <%= link_to "Create Minibook", new_mini_book_path %>
+              </button>
+               </button>
+              <button type="button" class="btn btn-outline-light", id="book__buttons_minib">
+                <%= link_to "Export", minibook_export_path(format: :pdf) %>
+              </button>
+            </li>
+          </ol>
+    </div>
+  </div>
 <%= render 'all_minibooks' %>
+</div>
+
+

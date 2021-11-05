@@ -64,7 +64,7 @@ table th {
 #book__entry__table {
   background-color: black;
   width: 85vw !important;
-  margin-left: -15%;
+  margin-left: -23%;
 
   .label_book_header {
     font: 120% $mainFont;
@@ -74,6 +74,7 @@ table th {
   .label_book_content {
     font: 90% $subFont;
     color: $color_offwhite !important;
+    text-overflow: ellipsis;
   }
 
   #table__inside__buttons {
@@ -114,6 +115,31 @@ table th {
       font: 100% $subFont;
       a {
         color: $color_cream !important;
+      }
+    }
+  }
+
+  #book__entry__table {
+    background-color: black;
+    width: 95vw !important;
+    margin-left: -12%;
+
+    .label_book_header {
+      font: 110% $mainFont;
+      color: $color_mustard !important;
+    }
+
+    .label_book_content {
+      font: 90% $subFont;
+      color: $color_offwhite !important;
+      text-overflow: ellipsis;
+    }
+
+    #table__inside__buttons {
+      background-color: $color_cream;
+      a {
+        font: 85% $subFont;
+        color: $color_darkblue !important;
       }
     }
   }

@@ -8,27 +8,24 @@
     </ul>
   <% end %>
 
-<div>
-  <div class="field">
-    <th><%= form.label :"MiniBook Name" %></th>
-    <th><%= form.text_field :minibook_name %></th>
-  </div>
+<div id = "book__entry__form">
+  <h1 id ="mainbook__entry">Create Minibook</h1>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= form.label :"MiniBook Name" %></div>
+  <div id = "book_field_input"><%= form.text_field :minibook_name, :required => true %></div>
+</div>
 
-  <div class="field">
-    <%= form.label :currency %>
-    <%= form.select :currency, ["usd", "eur", "pln", "uah"] %>
-  </div>
+<div class="field", id = "book_entry_field">
+ <%= form.number_field :user_id, id: :mini_book_user_id, value: current_user.id, readonly: true, type: :hidden %>
+</div>
 
-  <div class="field">
-    <th><%= form.label :"MiniBook Price"%></th>
-    <th><%= form.text_field :minibook_price %></th>
-  </div>
+<div class="field", id = "book_entry_field">
+  <%= form.hidden_field :id, :value => params[:id]%>
+</div>
 
-<%= form.hidden_field :id, :value => params[:id]%>
-
-  <div class = "form_button">
-    <button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_books_path %></button>
-    <button type="button" class="btn btn-outline-light"><%= form.submit :"Add" %></button>
-  </div>
-  </div>
+</div>
+<div id = "entry_submit_button_cont">
+  <button class="btn", id= "entry_submit_button"><%= link_to "Back", mini_books_path %></button>
+  <%= form.submit :"Update Minibook", class: 'btn', id: "entry_submit_button" %>
+</div>
 <% end %>

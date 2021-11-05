@@ -1,4 +1,29 @@
+<div class="container-fluid px-6">
+  <div class="row">
+    <% running_total = 0 %> 
+    <% running_total_credit = 0 %> 
+    <% running_total_debit = 0 %> 
+    <% @minibook_entries.each do |minibook_entry| %> 
+    <% if minibook_entry.user == current_user %> 
+      <% running_total = calculate_total_balance(running_total, calculate_balance(minibook_entry.debit_minib, minibook_entry.credit_minib)) %> 
+    <% end %>
+    <% end %>
+    <div>
+      <div class="card" id= "card_mainbook_header">
+        <div class="card-body" , id="mainbook__header">MINIBOOK ENTRIES</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <h5><%= "Total balance: "%><%= number_to_currency(running_total, unit: '₱ ') %></h5>
+        </div>
+      </div>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active", id="buttons__books">
+              <button type="button" class="btn btn-outline-light", id="book__buttons"><%= link_to "Back", mini_book_minibook_entries_path %></button>
+              <button type="button" class="btn btn-outline-light", id="book__buttons"><%= link_to "Add Entry", new_mini_book_minibook_entry_path(@mini_book_id) %></button>
+              <button type="button" class="btn btn-outline-light", id="book__buttons"><%= link_to "Export", minibook_entries_export_path(@mini_book_id, format: :pdf) %></button>
+            </li>
+        </ol>
+    </div>
+  </div>
 <%= render 'all_minibook_entries'%>
+</div>
 
-<%#= link_to "Show All Minibook Entries", all_minibook_entries_path %>
-<%#= link_to "Create Entry", new_minibook_entry_path %>

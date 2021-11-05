@@ -1,5 +1,4 @@
 <%= form_with scope: :minibook_entry, url: mini_book_minibook_entries_path, model: [@minibook_entry.mini_book, @minibook_entry], :local => true do |f| %>
-  <h1> Minibook entry</h1>
     <% if @minibook_entry.errors.any? %>
     <ul>
       <% @minibook_entry.errors.full_messages.each do |error_message| %>
@@ -7,37 +6,40 @@
       <% end %>
     </ul>
   <% end %>
-<div>
-<div class="field">
-  <th><%= f.label :"Date" %></th>
-  <th><%= f.date_field :date_minib_entry, :required => true %></th>
+
+<div id = "book__entry__form">
+  <h1 id ="mainbook__entry">Create Minibook Entry</h1>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"Date" %></div>
+  <div id = "book_field_input"><%= f.date_field :date_minib_entry, :required => true %></div>
 </div>
 
-<div class="field">
-  <th><%= f.label :"Description"%></th>
-  <th><%= f.text_field :minibook_entry_description, autofocus: true, placeholder: "Description", :required => true %></th>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"Description"%></div>
+  <div id = "book_field_input"><%= f.text_field :minibook_entry_description, autofocus: true, placeholder: "Description", :required => true %></div>
 </div>
 
-<div class="field">
-  <th><%= f.label :"or-vat-reg-tin"%></th>
-  <th><%= f.text_field :or_vat_reg_tin_minib, placeholder: "OR VAT-REG-TIN" %></th>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"or-vat-reg-tin"%></div>
+  <div id = "book_field_input"><%= f.text_field :or_vat_reg_tin_minib, placeholder: "OR VAT-REG-TIN" %></div>
 </div>
 
-<div class="field">
-  <th><%= f.label :"DEBIT (+)"%></th>
-  <th><%= f.number_field :debit_minib, placeholder: "DEBIT (+)", step: :any, value: '00.0' %></th>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"DEBIT (+)"%></div>
+  <div id = "book_field_input"><%= f.number_field :debit_minib, placeholder: "DEBIT (+)", step: :any, value: '00.0' %></div>
 </div>
 
-<div class="field">
-  <th><%= f.label :"CREDIT (-)"%></th>
-  <th><%= f.number_field :credit_minib, placeholder: "CREDIT (-)", step: :any, value: '00.0' %></th>
+<div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.label :"CREDIT (-)"%></div>
+  <div id = "book_field_input"><%= f.number_field :credit_minib, placeholder: "CREDIT (-)", step: :any, value: '00.0' %></div>
 </div>
 
-<th><%= f.number_field :user_id, id: :minibook_entry_user_id, value: current_user.id, type: :hidden %></th>
-
-  <div class = "form_button">
-    <button type="button" class="btn btn-outline-light"><%= link_to "Back", mini_book_minibook_entries_path %></button>
-    <button type="button" class="btn btn-outline-light"><%= f.submit :"Add" %></button>
-  </div>
-  </div>
+ <div class="field", id = "book_entry_field">
+  <div id = "book_field_label"><%= f.number_field :user_id, id: :minibook_entry_user_id, value: current_user.id, type: :hidden %></div>
+</div>
+</div>
+<div id = "entry_submit_button_cont">
+  <button class="btn", id= "entry_submit_button"><%= link_to "Back", mini_book_minibook_entries_path %></button>
+  <%= f.submit :"Add Entry", class: 'btn', id: "entry_submit_button" %>
+</div>
 <% end %>
