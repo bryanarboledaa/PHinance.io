@@ -11,18 +11,41 @@
   <div class="row">
     <hr class="hr-primary" />
     <ol class="breadcrumb bread-primary">
-      <li class="breadcrumb-item active">
-        <% if current_user %>
-        <h5 id="user_subscription__status">
-          Your current subscription status:<%= " "%><%= current_user.status %>
-        </h5>
-        <%end %>
-      </li>
+      
     </ol>
   </div>
 
   <div class="col-md-10" , id="user__cards_container">
     <div class="row">
+      <div class="col-xl-3 col-lg-6">
+          <div class="card l-bg-blue-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">Your Subscription Status</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8">
+                  <h2 class="d-flex align-items-center mb-0">
+                   <% if current_user %>
+                    <h5>
+                      <%= " "%><%if current_user.status == 'paid' %><%= link_to 'SUBSCRIBED TO MINIBOOKS', mini_books_path %>
+                      <% else %><%= link_to 'FREE USER, SUBSCRIBE NOW!', products_path %>
+                      <% end %>
+                    </h5>
+                  <%end %>
+                  </h2>
+                </div>
+                <div class="col-4 text-right">
+                  <span>STATUS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       <div class="col-xl-3 col-lg-6">
         <div class="card l-bg-gold">
           <div class="card-statistic-3 p-4">
@@ -68,7 +91,7 @@
             <div class="row align-items-center mb-2 d-flex">
               <div class="col-8">
                 <h2 class="d-flex align-items-center mb-0">
-                  <%= number_to_currency(running_total, unit: ' PHP ' ) %>
+                  <%= number_to_currency(running_total, unit: ' ₱ ' ) %>
                 </h2>
               </div>
               <div class="col-4 text-right">
@@ -91,7 +114,7 @@
             <div class="row align-items-center mb-2 d-flex">
               <div class="col-8">
                 <h2 class="d-flex align-items-center mb-0">
-                  <%= number_to_currency(running_total_debit, unit: ' PHP ' ) %>
+                  <%= number_to_currency(running_total_debit, unit: ' ₱ ' ) %>
                 </h2>
               </div>
               <div class="col-4 text-right">
@@ -114,7 +137,7 @@
             <div class="row align-items-center mb-2 d-flex">
               <div class="col-8">
                 <h2 class="d-flex align-items-center mb-0">
-                  <%= number_to_currency(running_total_credit, unit: ' PHP ' )
+                  <%= number_to_currency(running_total_credit, unit: ' ₱ ' )
                   %>
                 </h2>
               </div>
@@ -134,12 +157,12 @@
         <div class="col-sm-5 col-md-6">
           <a id="mainbook_entries_date__chart_cont">
             <h6>Mainbook Entries Date</h6>
-            <%#= area_chart @main_book_graph, :id=> 'mainbook_date__chart' %>
+            <%= area_chart @main_book_graph, :id=> 'mainbook_date__chart' %>
           </a>
         </div>
         <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
           <a id="mainbook_entries_date__chart_cont">
-            <h6>Mainbook Entries Date</h6>
+            <h6></h6>
             
           </a>
         </div>
