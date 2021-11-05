@@ -10,12 +10,12 @@ A Ruby on Rails accounting app for small businesses that allow users to track th
 #### Sample Credentials
 
 User:
-email: pickystocker@gmail.com
-pw: pickystocker
+- email: pickystocker@gmail.com
+- pw: pickystocker
 
 Admin:
-email: abc.dev@tech.com
-password: test1234
+- email: abc.dev@tech.com
+- password: test1234
 
 ![Final PPT -01](https://user-images.githubusercontent.com/73781775/140497654-f1e5939d-1d26-48f9-b2f3-441442b4c927.png)
 ![Final PPT -02](https://user-images.githubusercontent.com/73781775/140497661-9e378267-896f-442e-bdbb-ef5ab9be3cf0.png)
