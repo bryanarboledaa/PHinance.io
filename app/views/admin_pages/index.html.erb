@@ -1,16 +1,16 @@
 <div class="admin-home">
-  <h3> Dashboard </h3> </br>
+  <h2 id="h2-admin"> Dashboard </h2> </br>
   </br>
   <div class="counts">
     <div class="status-counts">
-      <h2> Users Status </h2>
+      <h4 id="h4-admin"> Users Status </h4>
       <%= pie_chart(@data) %> </br>
-      <h5> Free Users: <%= @count_free_users %> </h5> 
-      <h5> Paid Users: <%= @count_paid_users %> </h5> 
+      <h6> Free Users: <%= @count_free_users %> </h6> 
+      <h6> Paid Users: <%= @count_paid_users %> </h6> 
     </div> </br>
 
     <div class="main-mini-books">
-      <h2> Users MainBooks and MiniBooks </h2>
+      <h4 id="h4-admin"> Users MainBooks and MiniBooks </h4>
       <%= bar_chart(MainBooks:@mainbooks, MiniBooks: @minibooks) %>
     </div>
   </div>

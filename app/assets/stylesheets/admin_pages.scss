@@ -21,6 +21,15 @@ $laptop: 1024px;
   width: 40vw;
 }
 
+#h2-admin {
+  font: 200% $mainFont;
+  margin-left: 5%;
+}
+
+#h4-admin {
+  font: $subFont;
+}
+
 @media only screen and (max-width: $mobileS), (max-width: $mobileM), (max-width: $mobileL), (max-width: $tablet) {
   .counts {
     display: flex;
